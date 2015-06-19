@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="myApp.shop" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="myApp.shop" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="myApp.shop" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="myApp.shop" class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Rentbingo.com</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="/styles/app.css">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Montserrat:400,700%7COpen+Sans:300italic,400italic,600italic,700italic,800italic,300,400,600,700">
+    <link rel="stylesheet" href="/fonts/font-awesome-4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/styles/yamm.css">
+    <link rel="stylesheet" href="/styles/device-mockups2.css">
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/main-responsive.css">
+    <link id="primary_color_scheme" rel="stylesheet" href="/styles/theme_meadow.css">
+    <script src="/scripts/vendor/modernizr.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/WebRupee/2.0/font.min.css">
+    <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/4.9.0/bootstrap-social.css">
+    <link rel="stylesheet" href="/styles/build.css">
+    <link rel="stylesheet" href="/styles/animate.css">
+    <link rel="stylesheet" href="/styles/animations.css">
+    <link rel="stylesheet" href="/styles/full-slider.css">
+
+    <style type="text/css">
+        .navbar-standard{
+            background: #3498db;
+        }
+
+        .outline-outward:before {
+            border: 6px solid #3498db;
+        }
+
+        .product-image .bullet {
+            color: #ffffff;
+            background: #3498db;
+        }
+
+
+        #custom-search-input {
+            margin:0;
+            margin-top: 10px;
+            padding: 0;
+        }
+
+        #custom-search-input .search-query {
+            padding-right: 3px;
+            padding-right: 4px \9;
+            padding-left: 3px;
+            padding-left: 4px \9;
+            /* IE7-8 doesn't have border-radius, so don't indent the padding */
+
+            margin-bottom: 0;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+        }
+
+        #custom-search-input button {
+            border: 0;
+            background: none;
+            /** belows styles are working good */
+            padding: 2px 5px;
+            margin-top: 2px;
+            position: relative;
+            left: -28px;
+            /* IE7-8 doesn't have border-radius, so don't indent the padding */
+            margin-bottom: 0;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+            color:#D9230F;
+        }
+
+        .search-query:focus + button {
+            z-index: 3;
+        }
+
+        .checkbox-color input[type="checkbox"]:checked + label::before {
+            background-color: #337ab7;
+            border-color: #337ab7;
+        }
+
+        div.modal-dialog {
+            width : 327px;
+        }
+        div.input-group {
+            width: 268px;
+            height: 43px;
+            padding-bottom: 5px;;
+        }
+
+        input.form-control {
+            height :44px;
+        }
+
+        .btn.btn-lg.btn-primary.btn-block{
+            border-color: #c52d2f;
+            background-color: #c52d2f;
+        }
+
+        .navbar-standard {
+            background: #101010;
+        }
+
+        .nav .caret {
+            border-top-color: #c52d2f;
+            border-bottom-color: #c52d2f;
+        }
+
+        .nav a:hover .caret {
+            border-top-color: #c52d2f;
+            border-bottom-color: #c52d2f;
+        }
+
+        .navbar-standard .navbar-nav > li > a {
+            color: #999;
+        }
+
+        .navbar-standard .navbar-nav > li.open > a,
+        .navbar-standard .navbar-nav > li.active > a,
+        .navbar-standard .navbar-nav > li.open > a:hover,
+        .navbar-standard .navbar-nav > li.active > a:hover,
+        .navbar-standard .navbar-nav > li.open > a:focus,
+        .navbar-standard .navbar-nav > li.active > a:focus
+        .navbar-standard .navbar-nav > li > a:hover,
+        .navbar-standard .navbar-nav > li > a:focus
+        {
+            color: #ffffff;
+            border-color: #c52d2f;
+        }
+
+
+        .navbar-standard .navbar-nav .dropdown-menu {
+            border-color: #c52d2f;
+        }
+
+
+        ul.dropdown-menu > li >  a:hover,
+        ul.dropdown-menu > li >  a:focus
+        {
+            border-color:  #c52d2f;
+            text-decoration-color: #c52d2f;
+            color: #c52d2f;
+        }
+
+       a#login:hover,
+        a#login:focus,
+        a#dropdownMenuCart:hover,
+       a#dropdownMenuCart:focus
+       {
+           border-color:  #c52d2f;
+           color:  #c52d2f;
+       }
+        .navbar-standard .navbar-nav .badge {
+            background:#c52d2f;
+        }
+
+        .shopping_cart_dropdown .total span {
+            color: #c52d2f;
+        }
+
+        .rating-input i, .rate i {
+            color: #c52d2f;
+        }
+        a{
+            color: #c52d2f;
+        }
+        a:hover{
+            color: #333;
+        }
+        ul.social-icon > li > a{
+            color: #333;
+        }
+
+        ul.social-icon > li > a:hover {
+            color: #c52d2f;
+        }
+
+        .outline-outward:before {
+            border: 6px solid #c52d2f;
+        }
+
+        .accordion-group .accordion-item .accordion-icon.fa-minus {
+            background-color: #c52d2f;
+        }
+
+        .label-primary, .bg-primary {
+            background: #c52d2f;
+        }
+        .section-title span {
+
+            color: #c52d2f;
+        }
+
+        label{
+            font-weight: 100;
+        }
+
+        body {
+            background-color: #ecf0f1;
+        }
+
+        .allProductsDiv {
+            background-color: #ffffff;
+            box-shadow: 2px 2px 2px 2px #888888;
+            padding-top: 2.5em;
+            padding-right: 3em;
+            width: 110%;
+            margin-left: -3em;
+
+
+        }
+
+        .allCategoriesDiv{
+            background-color: #ffffff;
+            box-shadow: 2px 2px 2px 2px #888888;
+            margin-top: 10.3em;
+            width: 250px;
+        }
+
+
+        .loading-image {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            z-index: 10;
+        }
+        .spinnerLoader
+        {
+            display: none;
+            width:200px;
+            height: 200px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            text-align:center;
+            margin-left: -50px;
+            margin-top: -100px;
+            z-index:2;
+            overflow: auto;
+        }
+
+        #product-buttons{
+            margin-top : -5.5em;
+            margin-left: 0em;
+        }
+
+        #messageModal{
+            margin-left: -8em;
+        }
+       #messageModal div.modal-content{
+           width: 450px;
+       }
+
+        #messageModal div.input-group{
+            width: 410px;
+        }
+        #contactModal{
+            margin-left: -8em;
+        }
+        #contactModal div.modal-content{
+            width: 450px;
+        }
+
+        #contactModal div.input-group{
+            width: 410px;
+        }
+
+        i.fa.fa-heart.fa-lg{
+            color: #333;
+        }
+        i.fa.fa-heart.fa-lg:hover{
+            color: #c52d2f;
+        }
+        nav{
+            font-family: 'Franklin Gothic Medium', 'Franklin Gothic', 'ITC Franklin Gothic', Arial, sans-serif;
+        }
+        #logo{
+            float: left;
+            height: 60px;
+            margin-left: -7.5em;
+            margin-right: 2em;
+        }
+        .img-responsive {
+            display: block;
+            height: 100%;
+            max-width: 100%;
+        }
+        img.main-image{
+            max-height: 100%;
+            width: 100%;
+            border: 1px solid darkgray;
+        }
+        img.img-responsive{
+            max-height: 100%;
+            width: 100%;
+            border: 1px solid darkgray;
+        }
+
+        #product-buttons > .btn.btn-primary.btn-lg{
+            border-radius: 40px;
+        }
+
+        .product-images{
+            height: 300px;
+            width: 450px;
+        }
+        img.main-image{
+            height: 100%;
+        }
+        a.zoom.first{
+            cursor: pointer;
+        }
+        .btn-custom{
+            color: #fff;
+            background-color: #b84d45;
+            border-color: #a5453e;
+        }
+        .btn-custom:hover{
+            color: #fff;
+            background-color: darkred;
+            border-color: darkred;
+        }
+        #myCarousel{
+            height: 550px;
+        }
+        #product-buttons{
+            margin-left: 46em;
+            margin-top: -14em;
+
+        }
+        #category-buttons{
+            margin-left: 35em;
+            margin-top: -10em;
+
+        }
+        #reviewForm > div.input-group > textarea {
+            width: 450px;
+        }
+        #reviewForm > div.input-group > input{
+            width: 450px;
+        }
+        .widget_title{
+            text-transform: uppercase;
+            color: #222222;
+            font-size: 1.3em;
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: -2em;
+        }
+        #rate-product{
+            border:1px solid #dddddd;
+            height:auto;
+            margin-left: 1em;
+            background-color: white;
+        }
+
+        article {
+            margin-bottom: -7em;
+        }
+        #review-buttons > div > .btn.btn-primary.btn-lg{
+            border-color: #a5453e;
+            background-color: #c52d2f;
+            height: 2.2em;
+            width: 6em;
+            margin-left: -1.8em;
+        }
+        div.rating-product > i.fa.fa-star,
+        div.rating-product > span > i.fa.fa-star-o
+        {
+            color : #1abc9c;
+        }
+        div.col-md-8.col-md-push-1:hover{
+            background-color: lightcyan;
+            font-size: 3em;
+        }
+
+        #contactusModal{
+            margin-left: -8em;
+        }
+        #contactusModal div.modal-content{
+            width: 450px;
+        }
+
+        #contactusModal div.input-group{
+            width: 410px;
+        }
+    </style>
+
+    <link rel="stylesheet" href="/styles/build.css">
+
+    <script src="/scripts/vendor/parse-1.4.2.js"></script>
+
+
+</head>
+<body>
+<script>
+
+    window.fbAsyncInit = function() {
+        Parse.FacebookUtils.init({ // this line replaces FB.init({
+            appId      : '1445744882404866', // Facebook App ID
+            status     : true,  // check Facebook Login status
+            cookie     : true,  // enable cookies to allow Parse to access the session
+            xfbml      : true,  // initialize Facebook social plugins on the page
+            version    : 'v2.2' // point to the latest Facebook Graph API version
+        });
+
+        // Run code after the Facebook SDK is loaded.
+    };
+
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
+
+</script>
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+    var $_Tawk_API={},$_Tawk_LoadStart=new Date();
+    (function(){
+        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+        s1.async=true;
+        s1.src='https://embed.tawk.to/555daa5119120cff184fd75d/default';
+        s1.charset='UTF-8';
+        s1.setAttribute('crossorigin','*');
+        s0.parentNode.insertBefore(s1,s0);
+    })();
+</script>
+
+<!--End of Tawk.to Script-->
+<div id="fb-root"></div>
+<div class="spinnerLoader"  id="spinner">
+<img src="/img/ajax-loader.gif" class=".loading-image">
+    </div>
+<!-- Start Nav Section-->
+<nav id="main-navigation" role="navigation" class="navbar navbar-fixed-top navbar-standard" ng-controller="loginCtrl">
+    <div class="container">
+        <div class="navbar-header">
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right service-nav" style="margin-right: -5em;">
+                <!-- Login -->
+                <li><a id="login"  data-toggle="modal" data-target="#loginModal">Login</a>
+                <li class="dropdown"><a title="Pages" data-toggle="dropdown" data-hover="dropdown" id="menu_item_MyAccount" class="dropdown-toggle">Hi <span>{{currentUserName}}</span> <span class="caret"></span></a>
+                    <ul aria-labelledby="menu_item_My_Account" class="dropdown-menu">
+                        <!-- istanzio un id univoco-->
+                        <li><a href="/customer/#/orders" title="My Orders" id="menu_item_orders" target="_blank">My Orders</a></li>
+                        <li><a href="/customer/#/profile" title="Settings" id="menu_item_profile" target="_blank">My Profile</a></li>
+                        <li><a href="/customer/#/store" title="Settings" id="menu_item_store" target="_blank">My Store</a></li>
+                        <li><a  title="Log Out" id="menu_item_Log_Out" ng-click="logOut();">Log Out</a></li>
+                    </ul>
+                </li>
+                </li>
+                <!-- My Account-->
+
+                <!--
+
+                <li><a id="dropdownMenuCart" href="#" data-toggle="dropdown" class="dropdown-toggle"><i class="fa fa-shopping-cart fa-lg"></i>&nbsp;<span class="badge">2</span></a>
+                    <div aria-labelledby="dropdownMenuCart" class="dropdown-menu widget-box">
+                        <div class="shopping_cart_dropdown">
+                            <ul class="cart_list product_list_widget">
+                                <li><a href="#" class="delete"><i class="fa fa-close"></i></a><a href="#"><img alt="" src="/img/products/3.jpg"><span>New Peace Baja</span></a>
+                                    <h5 class="quantity">45.00</h5>
+                                </li>
+                                <li><a href="#" class="delete"><i class="fa fa-close"></i></a><a href="#"><img alt="" src="/img/products/5.jpg"><span>Sunny Tank Selected</span></a>
+                                    <h5 class="quantity">25.00</h5>
+                                </li>
+                            </ul>
+                            <div class="total">
+                                <h6>Subtotal</h6><span>$70.00</span>
+                            </div>
+                            <div class="action-button"><a href="shop-cart.html" class="btn btn-dark btn-bordered btn-xs upper">View Cart</a><a href="shop-checkout.html" class="btn btn-primary btn-xs upper">Checkout</a></div>
+                        </div>
+                    </div>
+                </li>
+                -->
+            </ul>
+            <button type="button" class="navbar-toggle"><i class="fa fa-close fa-lg"></i></button>
+
+            <ul class="nav yamm navbar-nav navbar-left main-nav">
+                <a href="shop/" ><img src="/img/logos/logo4.png" id="logo" class="animated bounceInDown"></a>
+                <!-- Furniture-->
+                <li class="dropdown"><a href="#" title="Furniture" data-toggle="dropdown" data-hover="dropdown" id="menu_item_Furniture" data-ref="#" class="dropdown-toggle"><i class="fa fa-bed" style="color: #c52d2f;"></i>&nbsp;Furniture<span class="caret"></span></a>
+                    <ul aria-labelledby="menu_item_Furniture" class="dropdown-menu">
+                        <li><a href="index.html" title="Single page" data-ref="index">Beds</a></li>
+                        <li><a href="#" title="" data-ref="#" class="msn">Almirah & Cupboards</a></li>
+                        <li><a href="#" title="" data-ref="#">Sofas</a></li>
+                        <li><a href="#" title="" data-ref="#">Tables</a></li>
+                        <li><a href="#" title="" data-ref="#">Chairs</a></li>
+                        <li><a href="#" title="" data-ref="#">Baby & Kids Furniture</a></li>
+                    </ul>
+                </li>
+                <!-- Electronics-->
+                <li class="dropdown"><a href="#" title="Electronics" data-toggle="dropdown" data-hover="dropdown" id="menu_item_Electronics" data-ref="#" class="dropdown-toggle"><i class="fa fa-desktop" style="color: #c52d2f;"></i>&nbsp;Electronics<span class="caret"></span></a>
+                    <ul aria-labelledby="menu_item_Electronics" class="dropdown-menu">
+                        <li class="dropdown-submenu"><a href="#" title="Air Coolers & Conditioners" id="menu_item_AC">Air Coolers & Conditioners</a> </li>
+                        <li class="dropdown-submenu"><a href="#" title="Refrigerators" id="menu_item_Refrigerators">Refrigerators</a></li>
+                        <li class="dropdown-submenu"><a href="#" title="Television" id="menu_item_TV">Television</a></li>
+                        <li class="dropdown-submenu"><a href="#" title="Washing Machine" id="menu_item_WM">Washing Machine</a></li>
+                    </ul>
+                </li>
+                <!-- Vehicles-->
+                <li class="dropdown yamm-fw"><a href="#" title="Shop" data-toggle="dropdown" data-hover="dropdown" id="menu_item_Vehicles" data-ref="#" class="dropdown-toggle"><i class="fa fa-car" style="color: #c52d2f;"></i>&nbsp;Vehicles<span class="caret"></span></a>
+                    <ul aria-labelledby="menu_item_Shop" class="dropdown-menu">
+                        <li>
+                            <div class="yamm-content">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <h6 class="upper hidden-xs">Vehicles</h6>
+                                        <ul class="sep-top-xs widget widget-cat">
+                                            <li class="cat-item"><a href="#" class="upper">Motor Bikes</a></li>
+                                            <li class="cat-item"><a href="#" class="upper">Scooters</a></li>
+                                            <li class="cat-item active"><a href="#" class="upper">Bicycles</a></li>
+                                            <li class="cat-item"><a href="#" class="upper">Cars</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-3 hidden-xs">
+                                        <h6 class="upper">Latest products</h6>
+                                        <ul class="sep-top-xs widget widget-media">
+                                            <li class="media media-bordered"><a href="shop-product.html" class="pull-left"><img src="/img/products/3.jpg" alt="" class="media-object"></a>
+                                                <div class="media-body"><small class="upper">Motor Bike</small>
+                                                    <h6 class="media-heading"><a href="shop-product.html">Bajaj Pulsar 150</a></h6>
+                                                    <div class="product-detail">
+                                                        <div class="price-shop">
+                                                            <del>900</del><ins>500</ins>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="media media-bordered"><a href="shop-product.html" class="pull-left"><img src="/img/products/5.jpg" alt="" class="media-object"></a>
+                                                <div class="media-body"><small class="upper">Scooter</small>
+                                                    <h6 class="media-heading"><a href="shop-product.html">Honda Eterno</a></h6>
+                                                    <div class="product-detail">
+                                                        <div class="price-shop">
+                                                            <del>500</del><ins>300</ins>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-3 hidden-xs">
+                                        <h6 class="upper">Shop Cart</h6>
+                                        <div class="sep-top-xs">
+                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+                                            <p>Lorem Ipsum is simply dummy text.</p>
+                                        </div>
+                                        <div class="sep-top-xs"><a href="shop-cart.html" class="btn btn-dark btn-bordered btn-block"><i class="fa fa-shopping-cart"></i>&nbsp;view cart</a></div>
+                                    </div>
+                                    <div class="col-md-3 hidden-xs">
+                                        <h6 class="upper">Shop Checkout</h6>
+                                        <div class="sep-top-xs">
+                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+                                            <ul class="list-inline sep-bottom-xs sep-top-xs">
+                                                <li><i class="fa fa-google-wallet fa-3x"></i></li>
+                                                <li><i class="fa fa-paypal fa-3x"></i></li>
+                                                <li><i class="fa fa-cc-mastercard fa-3x"></i></li>
+                                                <li><i class="fa fa-cc-visa fa-3x"></i></li>
+                                            </ul>
+                                        </div><a href="shop-checkout.html" class="btn btn-primary btn-block">checkout</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+                <!-- More Categories-->
+                <li class="dropdown"><a href="#" title="Blog" data-toggle="dropdown" data-hover="dropdown" id="menu_item_categories" data-ref="#" class="dropdown-toggle"><i class="fa fa-life-ring" style="color: #c52d2f;"></i>&nbsp;More Categories<span class="caret"></span></a>
+                    <ul aria-labelledby="menu_item_Blog" class="dropdown-menu">
+                        <li><a href="#" title="XBOX/PS3 Games" data-ref="blog">XBOX/PS3 Games</a></li>
+                        <li><a href="#" title="Wedding Wear" data-ref="blog-2">Wedding Wear</a></li>
+                        <li><a href="#" title="Formal Wear" data-ref="blog-masonry">Formal Wear</a></li>
+                        <li><a href="#" title="Camping Gear" data-ref="blog-detail">Camping Gear</a></li>
+                    </ul>
+                </li>
+
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Login/SignUp Modal -->
+<div id="overlay" class="signin" ng-controller="loginCtrl">
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <div id="switch">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default switch" id="btnSignup">Sign Up</button>
+                            <button type="button" class="btn btn-default switch" id="btnSignin">Sign In</button>
+                            <!--                            <button type="button" class="btn btn-default switch" data-switchid="social">Social</button>-->
+                        </div>
+                    </div>
+
+                </div>
+                <div id="spinner-area">
+                    <div class="modal-body">
+                        <div class="msg-holder">
+                            <div class="msg"></div>
+                        </div>
+                        <form id="signin" class="login-form" role="form" method="post">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
+                                <input type="email" class="form-control" name="username" placeholder="Email address"
+                                       pattern="([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?" title="Enter a valid email address" ng-model="emailSignIn" required autofocus>
+                            </div>
+
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+                                <input type="password" class="form-control" name="password" placeholder="Password" ng-model="passwordSignIn" required>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" name="remember-me"> Remember me
+                                </label>
+                            </div>
+                            <input type="hidden" class="form-control" name="secret" required>
+                            <button class="btn btn-lg btn-primary btn-block" type="submit" ng-click="signIn();">Sign in</button>
+                        </form>
+
+                        <form id="signup" class="login-form" role="form">
+                            <a class="btn btn-block btn-social btn-facebook" ng-click="facebookSignUp();">
+                                <i class="fa fa-facebook"></i> Sign up with Facebook
+                            </a>
+                            <hr>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
+                                <input type="text" class="form-control" name="name" placeholder="Name" ng-model="nameSignUp" required>
+                            </div>
+
+
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
+                                <input type="email" class="form-control" placeholder="Email Address" ng-model="emailSignUp"
+                                       pattern="([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?" title="Enter a valid email address" required>
+                            </div>
+
+
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+                                <input type="password" class="form-control" placeholder="Password" ng-model="passwordSignUp" required>
+                            </div>
+
+                            <div class="input-group" style="margin-bottom:10px;">
+                                <span class="input-group-addon"><i class="fa fa-mobile fa-fw"></i></span>
+                                <input type="mobile" class="form-control" placeholder="Mobile" pattern="[0-9]{10}" ng-model="mobileSignUp" title="Enter a valid mobile number" required>
+                            </div>
+
+                            <button class="btn btn-lg btn-primary btn-block" type="submit" id="submitSignUp" ng-click="signUp();">Sign up</button>
+
+                        </form>
+
+
+                        <form id="forgot" class="login-form" role="form">
+                            <div class="input-group"> <input type="email" class="form-control" placeholder="Email address" name="forgotEmail"
+                                         ng-model="emailResetPassword"  pattern="([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?" title="Enter a valid email address" required autofocus>
+                            </div>
+                            <button class="btn btn-lg btn-primary btn-block" type="submit" ng-click="resetPassword();">Send Reset Link</button>
+                        </form>
+
+
+                    </div>
+
+                    <div class="modal-footer">
+                        <a class="switch" id="btnForgot">forgot password?</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Contact Us modal -->
+<div class="modal fade" id="contactusModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true" ng-controller="contactUsCtrl">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <div>
+                    <h4 style="color: #c52d2f;">Fill up the form</h4>
+                </div>
+
+            </div>
+            <div>
+                <div class="modal-body">
+                    <div class="msg-holder">
+                        <div class="msg"></div>
+                    </div>
+
+
+                    <form id="contactUs" class="login-form" role="form">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
+                            <input type="text" class="form-control" name="nameContact" placeholder="Name" ng-model="contact.name" autofocus required>
+                        </div>
+
+
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
+                            <input type="email" class="form-control" placeholder="Email Address" ng-model="contact.email"
+                                   pattern="([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?" title="Enter a valid email address" required>
+                        </div>
+
+
+                        <div class="input-group" style="margin-bottom:10px;">
+                            <span class="input-group-addon"><i class="fa fa-mobile fa-fw"></i></span>
+                            <input type="mobile" class="form-control" placeholder="Mobile" pattern="[0-9]{10}" ng-model="contact.mobile" title="Enter a valid mobile number" required>
+                        </div>
+
+                        <div class="input-group" style="margin-bottom:10px;margin-top: -7px;">
+                            <span class="input-group-addon"><i class="fa fa-envelope-square fa-fw"></i></span>
+                            <textarea id="messageContact" class="form-control" style="height: 109px;" placeholder="How can we help you?" ng-model="contact.message" required></textarea>
+                        </div>
+
+                        <button class="btn btn-lg btn-primary btn-block" type="submit" id="submitContact" ng-click="contactUs();" ng-disabled="validateContactForm();">Send Message&nbsp;<i class="fa fa-send"></i></button>
+                    </form>
+
+                </div>
+
+                <div class="modal-footer">
+                    <p>Your credentials will be kept private.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="thankYouMessageModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <strong style="color: #c52d2f;">Message Sent</strong>
+
+            </div>
+
+            <div class="modal-body">
+                <div class="msg-holder">
+                    <div class="msg"></div>
+                </div>
+                Thank you for sending the message. We will get back to You as soon as possible.
+
+            </div>
+
+            <div class="modal-footer">
+                <span><a id="thankSignUplink">Sign Up</a>&nbsp;to explore our services.</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--[if lt IE 7]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<div class="view-container">
+<div ng-view class="view-frame"></div>
+</div>
+
+
+
+
+<!-- In production use:
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+-->
+
+<script src="/scripts/vendor/jquery.js"></script>
+<script src="/scripts/vendor/queryloader2.min.js"></script>
+<script src="/scripts/vendor/bootstrap.js"></script>
+<script src="/scripts/vendor/bootstrap-hover-dropdown.min.js"></script>
+<script src="/scripts/main.js"></script>
+<script src="/bower_components/angular/angular.js"></script>
+<script src="/bower_components/angular-route/angular-route.js"></script>
+<script src="/bower_components/angular-resource/angular-resource.js"></script>
+<script src="/bower_components/angular-animate/angular-animate.min.js"></script>
+
+<script src="/components/version/version.js"></script>
+<script src="/components/version/version-directive.js"></script>
+<script src="/components/version/interpolate-filter.js"></script>
+
+<script src="Scripts/shopAnimate.js"></script>
+<script src="Scripts/shopControllers.js"></script>
+<script src="Scripts/shopServices.js"></script>
+<script src="Scripts/shopDirectives.js"></script>
+<script src="Scripts/app.js"></script>
+
+
+
+<script type="text/javascript">
+    $(document).ready(function(){
+
+
+
+        $('#signup').hide();
+        $('#forgot').hide();
+        $('#btnSignin').addClass('active');
+
+        $('#btnSignup').on('click', function(){
+            $('#signin').hide();
+            $('#forgot').hide();
+            $('div.modal-footer a').hide();
+            $('#signup').show();
+            $("[name = 'name']").focus();
+            $('#btnSignin').removeClass('active');
+
+        });
+
+        $('#btnSignin').on('click', function(){
+            $('#signup').hide();
+            $('#forgot').hide();
+            $('#signin').show();
+            $('#btnForgot').show();
+            $("[name = 'username']").focus();
+        });
+        $('#btnForgot').on('click', function(){
+            $('#signup').hide();
+            $('#signin').hide();
+            $('#forgot').show();
+            $("[name = 'forgotEmail']").focus();
+        });
+
+        debugger;
+        var currentUserName = localStorage.getItem('currentUserName');
+        if(currentUserName){
+          //  alert(currentUser._serverData.name);
+            $('#login').hide();
+
+        }
+        else {
+          // $('#loginModal').modal();
+            $('#menu_item_MyAccount').hide();
+            $('#login').show();
+        }
+
+        $('#menu_item_MyAccount').css('cursor', 'pointer');
+
+        $('#loginModal').on('shown.bs.modal', function () {
+            // do something…
+            $("[name = 'username']").focus();
+        });
+
+    });
+
+
+</script>
+
+</body>
+</html>

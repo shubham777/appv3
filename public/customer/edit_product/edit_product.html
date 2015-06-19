@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="row">
+        <div class="row profile-text">
+            <strong style="text-decoration: underline"> Select Product </strong>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-md-push-3" style="margin-left: 3.5em;">
+                <div class="input-group" style="width: 400px;">
+
+                    <input type="text" class="form-control" name="query" placeholder="Search Product like name, code" ng-model="query"
+                           title="Search Product"  required>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div><br><br>
+<div class="allProductsDiv">
+    <div class="row">
+        <ul style="list-style-type: none;">
+            <li ng-repeat="product in products | filter: query" class="">
+                <div class="col-md-3 productDiv">
+
+                    <a href="#/edit_selected_product/{{product.code}}" class="product-image outline-outward" style="height: 120px;width:120px;" >
+                        <img ng-src="{{product.image_url_1}}" alt="{{product.name}}" class="img-responsive">
+                    </a>
+
+                    <div class="product-title">
+                        <span><strong>{{product.name}}</strong></span><br>
+                        <span style="color: #c52d2f">{{product.code}}</span>
+                    </div>
+                    <hr>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+ <div class="container" id="bottom" style="display: none;">
+     <div class="row profile-text">
+         <span style="color: #c52d2f"><button class="btn btn-danger" href="#" ng-click="prev();">Prev</button></span>
+         <span style="color: #c52d2f"><button class="btn btn-danger" href="#" ng-click="next();">Next</button></span>
+     </div>
+ </div>
+
+<div class="row" id="zeroProducts" style="display: none;">
+    <div class="row profile-text">
+        <strong style="color: #000000;"> You have 0 products listed. </strong>
+    </div>
+</div>

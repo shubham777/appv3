@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="myApp.customer" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="myApp.customer" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="myApp.customer" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="myApp.customer" class="no-js"> <!--<![endif]-->
+<head lang="en">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Rentbingo.com</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Montserrat:400,700%7COpen+Sans:300italic,400italic,600italic,700italic,800italic,300,400,600,700">
+    <link rel="stylesheet" href="/fonts/font-awesome-4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/WebRupee/2.0/font.min.css">
+
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/main-responsive.css">
+    <link id="primary_color_scheme" rel="stylesheet" href="/styles/theme_meadow.css">
+    <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/styles/build.css">
+    <link rel="stylesheet" href="/styles/animate.css">
+    <link rel="stylesheet" href="/styles/animations.css">
+
+    <style type="text/css">
+
+        /*
+ * Style tweaks
+ * --------------------------------------------------
+ */
+        body {
+            padding-top: 50px;
+            background-color: #f5f5f5;
+        }
+        footer {
+            padding-left: 15px;
+            padding-right: 15px;
+            background-color: #fff;
+        }
+
+        /*
+         * Off Canvas
+         * --------------------------------------------------
+         */
+        @media screen and (max-width: 768px) {
+            .row-offcanvas {
+                position: relative;
+                -webkit-transition: all 0.25s ease-out;
+                -moz-transition: all 0.25s ease-out;
+                transition: all 0.25s ease-out;
+            }
+
+            .row-offcanvas-left
+            .sidebar-offcanvas {
+                left: -33%;
+            }
+
+            .row-offcanvas-left.active {
+                left: 33%;
+            }
+
+            .sidebar-offcanvas {
+                position: absolute;
+                top: 0;
+                width: 33%;
+                margin-left: 10px;
+            }
+        }
+
+
+               /* Sidebar navigation */
+        .nav-sidebar {
+            background-color: #f5f5f5;
+            margin-right: -15px;
+            margin-bottom: 20px;
+            margin-left: -15px;
+        }
+        .nav-sidebar > li > a {
+            padding-right: 20px;
+            padding-left: 20px;
+            padding-top :20px;
+            padding-bottom: 20px;
+            color : #ffffff;
+        }
+        .nav.nav-sidebar > li.active > a {
+            color: #fff;
+            background-color: #c52d2f;
+        }
+
+
+
+
+        /*
+         * Main content
+         */
+
+        .main {
+            padding: 20px;
+            background-color: #fff;
+        }
+        @media (min-width: 768px) {
+            .main {
+                padding-right: 40px;
+                padding-left: 40px;
+            }
+        }
+        .main .page-header {
+            margin-top: 0;
+        }
+
+        .nav>li>a>.label {
+            position: absolute;
+            top: 9px;
+            right: 7px;
+            text-align: center;
+            font-size: 9px;
+            padding: 2px 3px;
+            line-height: .9;
+        }
+
+        .label-warning {
+            background-color: #f0ad4e;
+        }
+
+        .label {
+            display: inline;
+            padding: .2em .6em .3em;
+            font-size: 75%;
+            font-weight: 700;
+            line-height: 1;
+            color: #fff;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: baseline;
+            border-radius: .25em;
+        }
+
+        .label-success, .modal-success .modal-body {
+            background-color: #00a65a !important;
+        }
+
+        div.modal-dialog {
+            width : 327px;
+        }
+        div.input-group {
+            width: 268px;
+            height: 43px;
+            padding-bottom: 5px;;
+        }
+
+        input.form-control, select.form-control {
+            height :44px;
+
+        }
+
+        .btn.btn-lg.btn-primary.btn-block{
+            border-color: #c52d2f;
+            background-color: #c52d2f;
+        }
+        #user-dropdown{
+            border-color: #333;
+            background-color: #333;
+            color : #ffffff;
+        }
+        li#logOut > a{
+            color: #ffffff;
+        }
+
+        #customerInfo .input-group{
+            padding: 1em;
+        }
+
+        #customerInfo .input-group .form-control {
+            width: 320px;
+            margin-bottom: 0;
+        }
+
+        #customerInfo .btn{
+            margin-left: 0em;
+
+        }
+        .btn.btn-lg.btn-primary.btn-block {
+            border-color: #c52d2f;
+            background-color: #c52d2f;
+            width: 320px;
+        }
+
+        #signin .btn.btn-lg.btn-primary.btn-block {
+            border-color: #c52d2f;
+            background-color: #c52d2f;
+            width: 100%;
+        }
+        .profile-text{
+            color: #c52d2f;
+            font-weight: 500;
+            font-size: 2em;
+            text-align: center;
+            font-family: "Bitstream Vera Sans Mono", Monaco, "Courier New", Courier, monospace;
+            padding-bottom: 1em;
+        }
+
+
+        .icon-box.icon-lg .icon-content {
+            width: 150px;
+            height: 150px;
+            font-size: 4.5em;
+
+        }
+        .fa.fa-plus-square{
+            padding-top: 0.37em;
+            padding-left: 0.02em;
+        }
+        .fa.fa-edit{
+            padding-left: 0.20em;
+            padding-top: .4em;
+        }
+        .fa.fa-cubes{
+            padding-top: 0.3em;
+            padding-left: 0.1em;
+        }
+        .fa.fa-line-chart{
+            padding-top: 0.3em;
+            padding-left: 0.1em;
+        }
+
+        .hover-div{
+            background-color: #c52d2f;
+        }
+        #hover-text-1, #hover-text-2{
+            font-size: 2em;
+            font-family: Rockwell, 'Courier Bold', Courier, Georgia, Times, 'Times New Roman', serif;
+        }
+
+        #productAdd .input-group{
+            padding: 0.6em;
+        }
+
+        #productAdd .input-group .form-control {
+            width: 320px;
+            margin-bottom: 0;
+        }
+
+        #productAdd .btn{
+            margin-left: 0em;
+
+        }
+
+        .btn.btn-lg.btn-primary.btn-block {
+            border-color: #c52d2f;
+            background-color: #c52d2f;
+            width: 320px;
+        }
+
+        .profile-text{
+            color: #c52d2f;
+            font-weight: 500;
+            font-size: 2em;
+            text-align: center;
+            font-family: "Bitstream Vera Sans Mono", Monaco, "Courier New", Courier, monospace;
+            padding-bottom: 1em;
+        }
+
+        #backButton {
+            position: absolute;
+            background: #428BCA;
+            color: #fff;
+            font-family: Sans-serif;
+            font-size: 14px;
+            height: 40px;
+            width: 120px;
+            line-height: 40px;
+            margin: 25px 25px;
+            text-align: center;
+            border: 0;
+            transition: all 0.3s ease 0s;
+            webkit-border-radius: 20px 5px 5px 20px;
+            -moz-border-radius: 20px 5px 5px 20px;
+            border-radius: 20px 5px 5px 20px;
+            margin-top:0.4em;
+            margin-left: 0.5em;
+        }
+
+        #backButton:hover {
+            background: #c52d2f
+        }
+
+        #partialViewDiv{
+            height: auto;
+            margin-left: 2em;
+            background-color: #f5f5f5;
+            box-shadow:2px 2px 2px 2px #888888;
+            padding-bottom: 2em;
+            min-height: 522px;
+        }
+
+
+        #imgTest{
+            width: 150px;
+            height: 150px;
+            border-radius: 75px;
+            -webkit-border-radius: 75px;
+            -moz-border-radius: 75px;
+            background: url(/img/batman.jpg) no-repeat;
+            box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+            -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+            -moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+            overflow: hidden;
+            margin-left: 1.6em;
+            margin-bottom: 2em;
+            margin-top: 1em;
+        }
+
+        #sidebar{
+            margin-top: -3.3em;
+        }
+
+        .topbar-dialog {
+            font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif !important;
+            color: #3d3d3d;
+            font-size: 12px;
+            background-color: #fff;
+            box-shadow: 0 2px 2px rgba(0,0,0,0.2);
+            z-index: 999;
+            position: absolute;
+            text-align: left;
+            border-left: 1px solid #e0e0e0;
+            border-right: 1px solid #e0e0e0;
+            border-bottom: 1px solid #e0e0e0;
+            overflow: scroll;
+        }
+
+        .topbar-dialog.inbox-dialog {
+            width: 315px;
+            max-height: 300px;
+        }
+        .topbar-dialog .header {
+            background-color: #333;
+            width: 100%;
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            padding: 7px 10px 4px 10px;
+            position: relative;
+            clear: both;
+            font-size: 1em;
+        }
+        .dno {
+            display: none;
+        }
+        .topbar .topbar-wrapper .topbar-dialog .header h3 {
+            margin-bottom: 5px;
+        }
+        .topbar-dialog .header h3, .topbar-dialog .header h3 a {
+            font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif !important;
+            color: #f5f5f5;
+            font-weight: bold;
+            font-variant: small-caps;
+            line-height: .8;
+            display: inline-block;
+            font-size: 1.5em;
+        }
+
+        .topbar-dialog .modal-content li {
+            border-bottom: 1px solid #eee;
+            margin-bottom: 0;
+        }
+        .topbar-dialog ul li {
+            list-style: none;
+            margin-left: -2em;
+            line-height: 1.3;
+            margin-top: 0.5em;
+        }
+
+        .topbar-dialog.inbox-dialog .inbox-item .item-content, .topbar-dialog.modInbox-dialog .inbox-item .item-content, .topbar-dialog.achievements-dialog .inbox-item .item-content {
+            display: inline-block;
+            width: 270px;
+        }
+
+        .topbar-dialog.inbox-dialog .inbox-item .item-content .item-header, .topbar-dialog.modInbox-dialog .inbox-item .item-content .item-header, .topbar-dialog.achievements-dialog .inbox-item .item-content .item-header {
+            color: #888;
+        }
+
+        .topbar-dialog.inbox-dialog .inbox-item .item-content .item-creation, .topbar-dialog.modInbox-dialog .inbox-item .item-content .item-creation, .topbar-dialog.achievements-dialog .inbox-item .item-content .item-creation {
+            float: right;
+            color: #428bca;
+        }
+
+        .topbar-dialog.inbox-dialog .inbox-item .item-content .item-contact-details, .topbar-dialog.modInbox-dialog .inbox-item .item-content .item-contact-details, .topbar-dialog.achievements-dialog .inbox-item .item-content .item-contact-details {
+            margin: 4px 0;
+            color: #c52d2f;
+            font-weight: 700;
+        }
+
+        .topbar-dialog.inbox-dialog .inbox-item .item-content .item-summary, .topbar-dialog.modInbox-dialog .inbox-item .item-content .item-summary, .topbar-dialog.achievements-dialog .inbox-item .item-content .item-summary {
+            color: #3d3d3d;
+        }
+
+        .topbar-dialog.inbox-dialog .inbox-item.inbox-se-link, .topbar-dialog.modInbox-dialog .inbox-item.inbox-se-link, .topbar-dialog.achievements-dialog .inbox-item.inbox-se-link {
+            text-align: center;
+            margin-top: 0.3em;
+
+        }
+        .item-type{
+            color: #428bca;
+        }
+
+        a:hover{
+            color: #c52d2f;
+        }
+
+        .thumbnail-product{
+            height: 90px;
+            width: 90px;
+            border: 1px solid #000000;
+            margin-bottom: 0.5em;
+        }
+
+        .item-product-code{
+
+            color: #c52d2f;
+            font-weight: 700;
+            margin-left: 1.5em;
+        }
+
+        #footer{
+           margin-top: 2em;
+           width: auto;
+            margin-left: -1.2em;
+            margin-right: -1.2em;
+        }
+
+        #logOut{
+            margin-bottom: 0.5em;
+        }
+        nav{
+            font-family: 'Franklin Gothic Medium', 'Franklin Gothic', 'ITC Franklin Gothic', Arial, sans-serif;
+
+        }
+        #logo{
+            height: 54px;
+            margin-left: 1.1em;
+            margin-bottom: -0.2em;
+            float: left;
+        }
+        .profile-text{
+            font-family: 'Franklin Gothic Medium', 'Franklin Gothic', 'ITC Franklin Gothic', Arial, sans-serif;
+        }
+        .allProductsDiv{
+            margin-left: 3em;
+        }
+        nav, #sidebar{
+            font-family: 'Franklin Gothic Medium', 'Franklin Gothic', 'ITC Franklin Gothic', Arial, sans-serif;
+        }
+        div.row.profile-text{
+            font-family: 'Franklin Gothic Medium', 'Franklin Gothic', 'ITC Franklin Gothic', Arial, sans-serif;
+        }
+
+        img.img-responsive {
+            max-height: 100%;
+            width: 100%;
+            border: 1px solid darkgray;
+        }
+        .img-responsive {
+            display: block;
+            height: 100%;
+            max-width: 100%;
+        }
+
+        .product-image {
+            position: relative;
+            display: block;
+        }
+        .outline-outward {
+            position: relative;
+            overflow: visible !important;
+        }
+
+    </style>
+
+</head>
+<body style="background-color: #ecf0f1">
+<div ng-controller="navbarController">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+        </div>
+        <div class="navbar-collapse collapse">
+            <a class="nav navbar-nav navbar-left" href="/shop"><img src="/img/logos/logo4.png" id="logo"> </a>
+            <ul class="nav navbar-nav navbar-right">
+
+                <li><a href="/shop/#/" target="_blank">Shop</a></li>
+                <li id="inbox"><a><i class="fa fa-envelope-o"></i><span class="label label-success">{{newMessageCount}}</span> &nbsp;</a></li>
+                <li id="notification"><a><i class="fa fa-bell-o"></i><span class="label label-warning">{{newNotificationCount}}</span> &nbsp;</a></li>
+
+                <li class="dropdown"><a href="#"><b>Hello, <strong id="username">{{currentUserName}} </strong></b> &nbsp;<span class="caret"></span></a>
+                    <ul aria-labelledby="User-Info" class="dropdown-menu" id="user-dropdown">
+                        <li id="logOut"><a ng-click="logOut();">Log Out</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <button ng-click="updateNewMessages()" id="updateMsg" style="display: none;"></button>
+        </div>
+    </div>
+  </nav>
+  <div class="topbar-dialog inbox-dialog dno" style="position:fixed;top: 34px; right: 10px; display: none;z-index: 10;" id="topBar">
+        <div class="header">
+            <h3>inbox</h3>
+        </div>
+
+        <div class="modal-content">
+            <ul>
+                <li class="inbox-item " ng-repeat="message in messages">
+                    <a href="#">
+                        <div class="site-icon favicon favicon-stackoverflow" title="Stack Overflow"></div>
+                        <div class="item-content">
+                            <div class="item-header">
+                                <span class="item-type">Message</span>
+                                <span class="item-creation"><span title="2015-05-04 19:40:41Z">{{message.dateTime}}</span></span>
+                            </div>
+                            <div class="item-contact-details">
+                                {{message.sender_name}}
+                            </div>
+                            <div class="item-summary">
+                                {{message.sender_message}}
+                            </div>
+                        </div>
+                    </a>
+                </li>
+
+
+                <li class="inbox-item inbox-se-link">
+                    <a href="/customer/#/messages">
+                        see all inbox items
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+   </div>
+    <div class="topbar-dialog inbox-dialog dno" style="position:fixed;top: 34px; right: 10px; display: none;z-index: 10;" id="notifyTopBar">
+        <div class="header">
+            <h3>notifications</h3>
+        </div>
+
+        <div class="modal-content">
+            <ul>
+                <li class="inbox-item " ng-repeat="notification in notifications">
+                    <a href="#">
+                        <div class="site-icon favicon favicon-stackoverflow" title="Stack Overflow"></div>
+                        <div class="item-content">
+                            <div class="item-header">
+                                <span class="item-type"></span>
+                                <span class="item-creation"><span title="2015-05-04 19:40:41Z">{{notification.dateTime}}</span></span>
+                            </div>
+                            <div class="item-contact-details" style="margin-top: 1.5em;padding-bottom: 0.5em;">
+                                {{notification.name}}&nbsp; has liked your product '{{notification.product_code}}'
+                            </div>
+
+                        </div>
+                    </a>
+                </li>
+
+
+                <li class="inbox-item inbox-se-link">
+                    <a href="/customer/#/notifications">
+                        see all notifications
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+<br/>
+<br/>
+
+    <div class="container-fluid">
+
+          <div class="row row-offcanvas row-offcanvas-left">
+                <div class="col-md-2 col-sm-12"  style="margin-left : 0.5em; height: 520px;background-color: #333; box-shadow:2px  2px 2px 2px #888888;">
+                    <div >
+                            <label for="inputFileToLoad" >
+                                <div id="imgTest">
+                                <img id="profileImage" class="classImgFileUpload" src="/img/batman.jpg" height="155px" width="155px"  alt="Change Profile pic">
+
+                                </div> <hr style="margin-left: -0.4em;">
+                                <input type="file" id="inputFileToLoad" style="opacity:0;" onchange="uploadProfilePhoto();"/>
+                            </label>
+
+                    </div>
+
+                    <!--
+                    <label for="profileImage" >
+                        <img id="imgFileUpload" class="classImgFileUpload" src="/img/batman.jpg" height="100%" width="100%">
+                        <input type="file" id="profileImage" style="opacity:0;"/>
+                    </label>
+                    -->
+
+                    <div id="sidebar" role="navigation">
+
+                        <ul class="nav nav-sidebar" style="background-color: #333;">
+                            <li id="sidebar_orders"><a href="#/orders"><i class="fa fa-shopping-cart"></i> &nbsp;Orders</a></li>
+                            <li id="sidebar_store"><a href="#/store"><i class="fa fa-inr"></i> &nbsp;Store</a></li>
+                            <li id="sidebar_profile"><a href="#/profile"><i class="fa fa-user"></i> &nbsp;Profile</a></li>
+                            <li id="sidebar_settings"><a href=""><i class="fa fa-gear"></i> &nbsp;Settings</a></li>
+
+                        </ul>
+
+                    </div><!--/span-->
+
+
+                </div>
+
+
+                <div class="col-md-9 col-sm-12" id="partialViewDiv">
+                     <div ng-view></div>
+                </div>
+
+                <div class="col-md-1"></div>
+          </div><!--/row-->
+     </div><!--/.container-->
+
+<!-- Start Footer section-->
+<footer id="footer">
+    <div class="inner sep-top-md sep-bottom-md">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center"><small class="sep-top-xs">Please feel free to contact us at anytime!</small>
+                    <ul class="social-icon sep-top-sm">
+                        <li><a href="#" class="fa fa-twitter fa-2x"></a></li>
+                        <li><a href="#" class="fa fa-facebook fa-2x"></a></li>
+                        <li><a href="#" class="fa fa-google-plus fa-2x"></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="copyright sep-top-xs sep-bottom-xs">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center"><small>Copyright 2015 @ rentbingo.com. All rights reserved.</small></div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- End Footer section-->
+
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true" ng-controller="loginCtrl">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <div id="switch">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default switch" id="btnSignup">Sign Up</button>
+                        <button type="button" class="btn btn-default switch" id="btnSignin">Sign In</button>
+                        <!--                            <button type="button" class="btn btn-default switch" data-switchid="social">Social</button>-->
+                    </div>
+                </div>
+
+            </div>
+            <div id="spinner-area">
+                <div class="modal-body">
+                    <div class="msg-holder">
+                        <div class="msg"></div>
+                    </div>
+                    <form id="signin" class="login-form" role="form" method="post">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
+                            <input type="email" class="form-control" name="username" placeholder="Email address"
+                                   pattern="([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?" title="Enter a valid email address" ng-model="emailSignIn" required autofocus>
+                        </div>
+
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+                            <input type="password" class="form-control" name="password" placeholder="Password" ng-model="passwordSignIn" required>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="remember-me"> Remember me
+                            </label>
+                        </div>
+                        <input type="hidden" class="form-control" name="secret" required>
+                        <button class="btn btn-lg btn-primary btn-block" type="submit" ng-click="signIn();">Sign in</button>
+                    </form>
+
+                    <form id="signup" class="login-form" role="form">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
+                            <input type="text" class="form-control" name="name" placeholder="Name" ng-model="nameSignUp" required>
+                        </div>
+
+
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
+                            <input type="email" class="form-control" placeholder="Email Address" ng-model="emailSignUp"
+                                   pattern="([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?" title="Enter a valid email address" required>
+                        </div>
+
+
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+                            <input type="password" class="form-control" placeholder="Password" ng-model="passwordSignUp" required>
+                        </div>
+
+                        <div class="input-group" style="margin-bottom:10px;">
+                            <span class="input-group-addon"><i class="fa fa-mobile fa-fw"></i></span>
+                            <input type="mobile" class="form-control" placeholder="Mobile" pattern="[0-9]{10}" ng-model="mobileSignUp" title="Enter a valid mobile number" required>
+                        </div>
+
+                        <button class="btn btn-lg btn-primary btn-block" type="submit" id="submitSignUp" ng-click="signUp();">Sign up</button>
+                    </form>
+
+
+                    <form id="forgot" class="login-form" role="form">
+                        <div class="input-group"> <input type="email" class="form-control" placeholder="Email address" name="forgotEmail"
+                                                         ng-model="emailResetPassword"  pattern="([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?" title="Enter a valid email address" required autofocus>
+                        </div>
+                        <button class="btn btn-lg btn-primary btn-block" type="submit" ng-click="resetPassword();">Send Reset Link</button>
+                    </form>
+
+
+                </div>
+
+                <div class="modal-footer">
+                    <a class="switch" id="btnForgot">forgot password?</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="verifyEmailModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <strong style="color: #c52d2f;">Email Verification</strong>
+
+            </div>
+
+            <div class="modal-body">
+                <div class="msg-holder">
+                    <div class="msg"></div>
+                </div>
+                Hi <strong id="userNameModal" style="color: #c52d2f;"></strong> !! Please verify your Email in order to access your Account.
+
+            </div>
+
+            <div class="modal-footer">
+                Reload page after verification.ThankYou!!
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<script src="/scripts/vendor/jquery.js"></script>
+<script src="/scripts/vendor/parse-1.4.2.js"></script>
+<script src="/bower_components/angular/angular.js"></script>
+<script src="/bower_components/angular-route/angular-route.js"></script>
+<script src="/bower_components/angular-resource/angular-resource.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="/scripts/vendor/wow.min.js"></script>
+<script src="store/scripts/storeControllers.js"></script>
+<script src="store/scripts/store.js"></script>
+<script src="Scripts/customerControllers.js"></script>
+<script src="Scripts/customerServices.js"></script>
+<script src="Scripts/customer.js"></script>
+
+<script type="text/javascript">
+
+    //
+    // save the original function object
+    var _superModal = $.fn.modal;
+
+    // add locked as a new option
+    $.extend( _superModal.Constructor.DEFAULTS, {
+        locked: false
+    });
+
+    // capture the original hide
+    var _hide = _superModal.Constructor.prototype.hide;
+    // console.log('HIDE:', _hide);
+
+    // add the lock, unlock and override the hide of modal
+    $.extend(_superModal.Constructor.prototype, {
+        // locks the dialog so that it cannot be hidden
+        lock: function() {
+            // console.log('lock called');
+            // console.log('OPTIONS',this.options);
+            this.options.locked = true;
+        }
+        // unlocks the dialog so that it can be hidden by 'esc' or clicking on the backdrop (if not static)
+        ,unlock: function() {
+            // console.log('unlock called');
+            this.options.locked = false;
+        }
+        // override the original hide so that the original is only called if the modal is unlocked
+        ,hide: function() {
+            // console.log('hide called');
+            if (this.options.locked) return;
+
+            _hide.apply(this, arguments);
+        }
+    });
+
+
+    //
+
+    $(document).ready(function() {
+
+
+        $('#signup').hide();
+        $('#forgot').hide();
+        $('#btnSignin').addClass('active');
+
+
+        $('#btnSignup').on('click', function(){
+            $('#signin').hide();
+            $('#forgot').hide();
+            $('div.modal-footer a').hide();
+            $('#signup').show();
+            $("[name = 'name']").focus();
+            $('#btnSignin').removeClass('active');
+
+        });
+
+        $('#btnSignin').on('click', function(){
+            $('#signup').hide();
+            $('#forgot').hide();
+            $('#signin').show();
+            $('#btnForgot').show();
+            $("[name = 'username']").focus();
+        });
+        $('#btnForgot').on('click', function(){
+            $('#signup').hide();
+            $('#signin').hide();
+            $('#forgot').show();
+            $("[name = 'forgotEmail']").focus();
+        });
+
+        $('#sidebar .nav li').on('click', function(){
+            $(this).closest('ul').find('.active').removeClass();
+            $(this).addClass('active');
+
+        });
+
+
+
+        $('li.dropdown').on('mouseenter', function(){
+            $('#user-dropdown').show();
+        }).on('mouseleave', function(){
+            $('#user-dropdown').hide();
+        });
+
+        (function makeSidebarListActive(){
+            var hash = window.location.hash;
+            var list_active = '#' + 'sidebar_' + hash.substr(2);
+            $('#sidebar_orders').removeClass('active');
+            $(list_active).addClass('active');
+        }());
+
+        $('#inbox').on('click', function(){
+            $('#topBar').toggle();
+
+        });
+        $('#notification').on('click', function(){
+            $('#notifyTopBar').toggle();
+
+        });
+        $('#logOut').css('cursor', 'pointer');
+
+    });
+
+
+
+
+
+    function changeProfileImage(){
+
+        document.getElementById('profileImage').click();
+    }
+
+    if(Parse.User.current()) {
+        var currentUser = Parse.User.current()._serverData;
+    }
+    else{
+        var currentUser = {
+            username :  localStorage.getItem('currentUserEmail')
+        };
+    }
+
+    if(!currentUser || !currentUser.username || typeof currentUser == 'undefined'){
+        $('#loginModal').modal('show');
+    }
+    var uploadProfilePhoto = function(){ debugger;
+        var profilePicControl = $('#inputFileToLoad')[0];
+        if(profilePicControl.files.length > 0){
+          var file = profilePicControl.files[0];
+            var name = file.name;
+            var parseFile = new Parse.File(name, file);
+            parseFile.save().then(function(parseFile){
+              var profilePicUrl =  parseFile.url();
+             uploadUrlToParseCustomer(profilePicUrl);
+            },
+            function error(error){
+                alert('Error saving profile Pic file! '  + error.code + " " + error.message);
+            });
+        }
+    };
+
+    var uploadUrlToParseCustomer = function(url){
+        debugger;
+      //  var url = "http://files.parsetfss.com/c5928800-1a1c-488e-96a4-232ed6f775fb/tfss-fa76fe67-a74a-4e6b-b207-3ece5310885c-lion.jpg";
+     try {
+         var Customer = Parse.Object.extend('Customer');
+         var query = new Parse.Query(Customer);
+         var userEmail = currentUser.username;
+         if (userEmail) {
+             query.equalTo("email", userEmail);
+             query.first({
+                 success: function (Customer) {
+
+                     Customer.save(null, {
+                         success: function (customerObject) {
+                             customerObject.set("imageUrl", url);
+                             customerObject.save(null, {
+                                 success: function (customerObject) {
+                                     console.log('Url successfully saved to Customer profile');
+                                     $('#profileImage').attr('src', url);
+                                     localStorage.setItem('imageUrl', url);
+                                 },
+                                 error: function (error) {
+                                     console.log('Error : Url not uploaded ' + error.code + " " + error.message);
+                                 }
+                             });
+                         },
+                         error: function (error) {
+                             alert('error Uploading Pic');
+                             console.log('Error : Url not uploaded ' + error.code + " " + error.message);
+                         }
+                     });
+
+                 },
+                 error: function (error) {
+                     console.log(error.code + " " + error.message);
+                     alert('First please update Your Profile');
+                 }
+             });
+            // window.location.reload();
+         }
+      }
+        catch(e){
+            console.log('Error uploading Picture!!');
+        }
+    };
+/*
+    var verifyEmail = function(){
+        var currentUser = Parse.User.current();
+        if(currentUser) {
+        var query = new Parse.Query(Parse.User);
+            query.equalTo("username", currentUser._serverData.username);
+            query.find({
+                success :  function(user){
+
+                    var emailVerified = user[0]._serverData.emailVerified;
+                    if(!emailVerified){
+                        $('#verifyEmailModal').modal();
+                        $('#verifyEmailModal').modal('lock');
+                    }
+                },
+                error : function(error){
+                  console.log('Error ' + error.code  + ' ' + error.message)
+                }
+            });
+        }
+    };
+*/
+    var initializeCustomerProfile = function(){
+        debugger;
+        var imageUrl = localStorage.getItem('imageUrl');
+        console.log(imageUrl);
+        if(imageUrl != null && imageUrl != 'undefined'){
+            $('#profileImage').attr('src', localStorage.getItem('imageUrl'));
+          //  alert('localStorage imageUrl success');
+        }
+        else{
+            var Customer = Parse.Object.extend('Customer');
+            var query = new Parse.Query(Customer);
+            query.equalTo("email", currentUser.username);
+            query.find({
+                success: function (results) {
+                    alert('get customer profile pic query');
+                    var customer = results[0];
+                    if (typeof customer === 'undefined') {
+
+                        alert('No Customer Account')
+                    }
+                    else {
+                        var imageUrl = customer.get('imageUrl');
+                        localStorage.setItem('imageUrl', imageUrl);
+                        $('#profileImage').attr('src', imageUrl);
+                    }
+                },
+                error: function (error) {
+                    alert("Error: " + error.code + " " + error.message);
+                }
+            });
+        }
+    }();
+
+
+    if (currentUser) {
+        // do stuff with the user
+        $('#username').text(currentUser.name);
+        $('#userNameModal').text(currentUser.name);
+       // initializeCustomerProfile();
+        //verifyEmail();
+    } else {
+        // show the signup or login page
+        $('#loginModal').modal();
+        $('#loginModal').modal('lock');
+    }
+</script>
+</body>
+</html>

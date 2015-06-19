@@ -1,0 +1,113 @@
+<div>
+
+<div class="container">
+    <div class="row profile-text">
+        Edit Your Profile
+    </div>
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-11">
+            <form id="customerInfo" class="login-form" role="form">
+
+                <div style="width: 50%;float:left;">
+                <div class="input-group">
+
+                    <input type="text" class="form-control" name="name" placeholder="Full Name" ng-model="user.name"
+                           title="Enter Your Full Name"  required>
+                </div>
+
+
+                <div class="input-group">
+
+                    <input type="email" class="form-control" placeholder="Email Address" ng-model="user.email"
+                           pattern="([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?" title="Enter a valid email address" required>
+                </div>
+
+
+                <div class="input-group">
+
+                    <input type="mobile" class="form-control" placeholder="Contact No" ng-model="user.phone1" pattern="[0-9]{10}" title="Enter a valid mobile number" required>
+                </div>
+
+                <div class="input-group" style="margin-bottom:10px;">
+
+                    <input type="mobile" class="form-control" placeholder="Alternate Contact No" pattern="[0-9]{10}" ng-model="user.phone2" title="Enter a valid mobile number">
+                </div>
+
+                    <div class="input-group" style="margin-bottom:10px;">
+
+                        <textarea class="form-control" placeholder="Full Address"  ng-model="user.address" title="Enter Your Full Address" required></textarea>
+                    </div>
+
+                </div>
+
+                <div style="width: 50%;float:right;">
+                    <div class="input-group">
+
+                        <select class="form-control" ng-model="user.state" ng-options="state.name for state in states"> </select>
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <input type="text" class="form-control" placeholder="City" ng-model="user.city"
+                              title="Enter Your City" required>
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <input type="text" class="form-control" placeholder="Pincode" ng-model="user.pincode" pattern="[0-9]{6}" title="Enter a valid pincode" required>
+                    </div>
+
+                    <div class="input-group" style="margin-bottom:10px;">
+
+                        <input type="text" class="form-control" placeholder="Country"  ng-model="user.country" title="Enter a valid Country"  ng-disabled="true" required>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                <button class="btn btn-lg btn-primary btn-block" ng-click="updateProfile();" ng-disabled="validateUpdation();">Update Profile</button>
+                </div>
+
+
+            </form>
+
+            <button id="updateForm" ng-click="updateForm();" style="display: none;">Hello</button>
+
+        </div>
+
+    </div>
+</div>
+
+<div class="modal fade" id="thankYouModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                Profile Updated
+
+            </div>
+
+                <div class="modal-body">
+                    <div class="msg-holder">
+                        <div class="msg"></div>
+                    </div>
+                            Congratulations <strong>{{user.name}}</strong> !! Your have successfully updated your info.
+
+                </div>
+
+                <div class="modal-footer">
+
+                </div>
+        </div>
+    </div>
+</div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function(){
+       $("[name = 'name']").focus();
+    });
+
+</script>

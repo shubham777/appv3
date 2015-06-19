@@ -1,0 +1,107 @@
+.phone-listing.ng-enter,
+.phone-listing.ng-leave,
+.phone-listing.ng-move {
+    -webkit-animation: bounceOutLeft 1s;
+    -moz-animation: bounceOutLeft 1s;
+    -ms-animation: bounceOutLeft 1s;
+    animation: bounceOutLeft 1s;
+}
+
+.phone-listing.ng-enter,
+.phone-listing.ng-move {
+    -webkit-animation: bounceOutLeft 1s;
+    -moz-animation: bounceOutLeft 1s;
+    -ms-animation: bounceOutLeft 1s;
+    animation: bounceOutLeft 1s;
+}
+
+.phone-listing.ng-move.ng-move-active ,
+.phone-listing.ng-enter
+ {
+    -webkit-animation: bounceOutDown 1s;
+    -moz-animation: bounceOutDown 1s;
+    -ms-animation: bounceOutDown 1s;
+    animation: bounceOutDown 1s;
+
+}
+
+.phone-listing.ng-enter {
+    -webkit-animation: rubberBand 1s;
+    -moz-animation: rubberBand 1s;
+    -ms-animation: rubberBand 1s;
+    animation: rubberBand 1s;
+
+}
+
+
+.phone-listing.ng-leave {
+    -webkit-animation: bounceOutRight 1s;
+    -moz-animation: bounceOutRight 1s;
+    -ms-animation: bounceOutRight 1s;
+    animation: bounceOutRight 1s;
+}
+
+.phone-listing.ng-leave.ng-leave-active {
+    -webkit-animation: bounceOutRight 1s;
+    -moz-animation: bounceOutRight 1s;
+    -ms-animation: bounceOutRight 1s;
+    animation: bounceOutRight 1s;
+}
+
+
+
+.view-container {
+    position: relative;
+}
+
+.view-frame.ng-enter, .view-frame.ng-leave {
+    background: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.view-frame.ng-enter {
+    -webkit-animation: 2s fade-in;
+    -moz-animation: 2s fade-in;
+    -o-animation: 2s fade-in;
+    animation: 2s fade-in;
+    z-index: 100;
+}
+
+.view-frame.ng-leave {
+    -webkit-animation: 0.5s fade-out;
+    -moz-animation: 0.5s fade-out;
+    -o-animation: 0.5s fade-out;
+    animation: 0.5s fade-out;
+    z-index:99;
+}
+
+@keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@-moz-keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@-webkit-keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fade-out {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+@-moz-keyframes fade-out {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+@-webkit-keyframes fade-out {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+/* don't forget about the vendor-prefixes! */

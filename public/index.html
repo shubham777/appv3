@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Home | RentBingo</title>
+
+    <!-- core CSS -->
+    <link href="styles/css/bootstrap.min.css" rel="stylesheet">
+    <link href="styles/css/font-awesome.min.css" rel="stylesheet">
+    <link href="styles/css/animate.min.css" rel="stylesheet">
+    <link href="styles/css/prettyPhoto.css" rel="stylesheet">
+    <link href="styles/css/main-index.css" rel="stylesheet">
+    <link href="styles/css/responsive.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/css/main.css">
+    <link rel="stylesheet" href="styles/css/main-responsive.css">
+
+
+
+
+    <!--[if lt IE 9]>
+
+    <![endif]-->
+    <link rel="shortcut icon" href="img/Images/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/Images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/Images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/Images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="img/Images/ico/apple-touch-icon-57-precomposed.png">
+
+    <style>
+
+        h1 {
+            display: block;
+            font-size: 2em;
+            margin-top: 0.67em;
+            margin-bottom: 0.67em;
+            margin-left: 0;
+            margin-right: 0;
+            font-weight: bold;
+            font-family: 'Franklin Gothic Medium', 'Franklin Gothic', 'ITC Franklin Gothic', Arial, sans-serif;
+        }
+        h2 {
+            display: block;
+            font-size: 1.5em;
+            margin-top: 0.83em;
+            margin-bottom: 0.83em;
+            margin-left: 0;
+            margin-right: 0;
+            font-weight: bold;
+            font-family: 'Franklin Gothic Medium', 'Franklin Gothic', 'ITC Franklin Gothic', Arial, sans-serif;
+        }
+        h3 {
+            display: block;
+            font-size: 1.17em;
+            margin-top: 1em;
+            margin-bottom: 1em;
+            margin-left: 0;
+            margin-right: 0;
+
+        }
+        h4 {
+            display: block;
+            margin-top: 1.33em;
+            margin-bottom: 1.33em;
+            margin-left: 0;
+            margin-right: 0;
+            font-weight: bold;
+        }
+        h5 {
+            display: block;
+            font-size: .83em;
+            margin-top: 1.67em;
+            margin-bottom: 1.67em;
+            margin-left: 0;
+            margin-right: 0;
+            font-weight: bold;
+        }
+        h6 {
+            display: block;
+            font-size: .67em;
+            margin-top: 2.33em;
+            margin-bottom: 2.33em;
+            margin-left: 0;
+            margin-right: 0;
+            font-weight: bold;
+        }
+        .icon-box h1,
+        .icon-box h2,
+        .icon-box h3,
+        .icon-box h4,
+        .icon-box h5,
+        .icon-box h6 {
+            margin: 20px 0 15px 0;
+        }
+        .icon-box h1,
+        .icon-box h2,
+        .icon-box h3,
+        .icon-box h4,
+        .icon-box h5,
+        .icon-box h6 {
+            font-weight: 600;
+            font-family: 'Open Sans', sans-serif;
+            color:#4e4e4e;
+            font-size: 20px;
+
+        }
+        .icon-box {
+            overflow: hidden;
+        }
+
+        .icon-box.icon-lg .icon-content {
+            width: 110px;
+            height: 110px;
+            font-size: 4.5em;
+        }
+        .icon-box.icon-lg .icon-content .fa {
+            line-height: 110px;
+        }
+
+        .icon-box .light {
+            color: #ffffff;
+        }
+        .icon-box .icon-content {
+            background-color: #1abc9c;
+            color: #ffffff;
+        }
+        .icon-box .icon-content.inverter {
+            background: #ffffff;
+            color: #1abc9c;
+        }
+        .icon-gradient .icon-content {
+            background-color: #1abc9c;
+        }
+        .icon-box.fixed-section {
+            position: absolute;
+            top: -40px;
+        }
+        .icon-box .icon-content {
+            display: block;
+            float: left;
+            text-align: center;
+            max-width: 100%;
+            vertical-align: middle;
+        }
+        .icon-box.icon-lg .icon-box-content {
+            margin: 0 0 0 135px;
+        }
+
+        #aboutUs{
+            background: none repeat scroll 0 0 #F3F3F3;
+            border-radius: 3px;
+            padding-bottom: 30px;
+            position: relative;
+            margin-bottom: 18px;
+            margin-top: 60px;
+        }
+        #aboutUs button{
+            padding: 8px 20px;
+            background: #c52d2f;
+            color: #fff;
+            border-radius: 4px;
+            margin-top: 25px;
+            display: inline-block;
+            margin-bottom:-2em;
+            -webkit-animation: fadeInUp 300ms linear 900ms both;
+            -moz-animation: fadeInUp 300ms linear 900ms both;
+            -o-animation: fadeInUp 300ms linear 900ms both;
+            -ms-animation: fadeInUp 300ms linear 900ms both;
+            animation: fadeInUp 300ms linear 900ms both;
+            float: none;
+            margin: 0 auto;
+        }
+        #services {
+            background: url('img/Images/services/bg_services.png') rgb(0, 0, 0);
+        }
+        .new-font{
+            font-family: 'Franklin Gothic Medium', 'Franklin Gothic', 'ITC Franklin Gothic', Arial, sans-serif;
+        }
+        section#main-slider{
+
+            margin-top: 5em;
+        }
+
+    </style>
+
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
+    <script>
+        function initialize() {
+            var mapCanvas = document.getElementById('map-canvas');
+            var mapOptions = {
+                center: new google.maps.LatLng(12.938900, 77.630566),
+                zoom: 8,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            }
+            var map = new google.maps.Map(mapCanvas, mapOptions)
+        }
+        google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+</head><!--/head-->
+
+<body class="homepage">
+
+<header id="header">
+
+
+    <nav class="navbar navbar-inverse navbar-fixed-top normal" role="banner" >
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">RentBingo</a>
+            </div>
+
+            <div class="collapse navbar-collapse navbar-right" style="font-family: 'Franklin Gothic Medium', 'Franklin Gothic', 'ITC Franklin Gothic', Arial, sans-serif;">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="index.html">Home</a></li>
+                    <li><a href="#feature">Services</a></li>
+                    <li><a href="#about">How it Works</a></li>
+
+                    <li><a href="#services">Rent</a></li>
+                    <li><a href="shop/">Shop</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="contact-us.html">Sign In</a></li>
+
+                </ul>
+            </div>
+        </div><!--/.container-->
+    </nav><!--/nav-->
+
+</header><!--/header-->
+
+<section id="main-slider" class="no-margin">
+    <div class="carousel slide">
+        <ol class="carousel-indicators">
+            <li data-target="#main-slider" data-slide-to="0" class="active"></li>
+            <li data-target="#main-slider" data-slide-to="1"></li>
+            <li data-target="#main-slider" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+
+            <div class="item active" style="background-image: url(img/Images/carousel1.jpg)">
+                <div class="container">
+                    <div class="row slide-margin">
+                        <div class="col-sm-6">
+                            <div class="carousel-content">
+                                <h1 class="animation animated-item-1">Description of our services</h1>
+                                <h2 class="animation animated-item-2">Description of our services</h2>
+                                <a class="btn-slide animation animated-item-3" href="#">Read More</a>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 hidden-xs animation animated-item-4">
+
+                        </div>
+
+                    </div>
+                </div>
+            </div><!--/.item-->
+
+            <div class="item" style="background-image: url(img/Images/carousel4.jpg)">
+                <div class="container">
+                    <div class="row slide-margin">
+                        <div class="col-sm-6">
+                            <div class="carousel-content">
+                                <h1 class="animation animated-item-1">Description of our services</h1>
+                                <h2 class="animation animated-item-2">Description of our services</h2>
+                                <a class="btn-slide animation animated-item-3" href="#">Read More</a>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 hidden-xs animation animated-item-4">
+
+                        </div>
+
+                    </div>
+                </div>
+            </div><!--/.item-->
+
+            <div class="item" style="background-image: url(img/Images/carousel6.jpg)">
+                <div class="container">
+                    <div class="row slide-margin">
+                        <div class="col-sm-6">
+                            <div class="carousel-content">
+                                <h1 class="animation animated-item-1">Description of our services</h1>
+                                <h2 class="animation animated-item-2">Description of our services</h2>
+                                <a class="btn-slide animation animated-item-3" href="#">Read More</a>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 hidden-xs animation animated-item-4">
+
+                        </div>
+
+                    </div>
+                </div>
+            </div><!--/.item-->
+        </div><!--/.carousel-inner-->
+    </div><!--/.carousel-->
+    <a class="prev hidden-xs" href="#main-slider" data-slide="prev">
+        <i class="fa fa-chevron-left"></i>
+    </a>
+    <a class="next hidden-xs" href="#main-slider" data-slide="next">
+        <i class="fa fa-chevron-right"></i>
+    </a>
+</section><!--/#main-slider-->
+<!--<div data-spy="scroll" data-target=".navbar" data-offset="12">-->
+<section id="aboutUs" style="background-color:#F3F3F3; height:50%;">
+    <div class="container">
+        <div class="center wow fadeInDown">
+            <h2 class="new-font">About Us</h2>
+            <p class="lead">RentBingo is a consolidated rental portal for various products. It is an attempt to organize the rental marketplace in India and promote the idea of renting products to save money and space.
+                Our portal lists all kinds of products like Furniture, Appliances, Adventure Gear, Fancy Dress, Wedding Chairs and Tables etc that are provided on rent by various vendors across various Indian cities . Consumers can search for products or browse through products of their interest and also find out the vendor that rents out the product in their locality.</p>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-3">
+            </div>
+
+            <div class="col-lg-3">
+            </div>
+        </div><!--container-->
+</section><!--about us-->
+<!--</div><!--scrollpsy-->-->
+<!--<div data-spy="scroll" data-target=".navbar" data-offset="12">-->
+<section id="feature" class="transparent-bg">
+    <div class="container">
+        <div class="center wow fadeInDown">
+            <h2 class="new-font">Our Services</h2>
+            <p class="lead"></p>
+        </div>
+
+        <div class="row">
+            <div class="features">
+                <div class="col-md-6 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+                    <div class="feature-wrap">
+                        <i class="fa fa-eye"></i>
+                        <h2>Browse Products</h2>
+                        <h3 class="col-md-9" style="margin-left: -1em;margin-top: -0.5em;">Browse through our vast catalogue of 100+ products, with categories ranging from furnitures, electronics, games, dresses for wedding and other events to adventure gears and motorised vehicles.</h3>
+                    </div>
+                </div><!--/.col-md-4-->
+
+                <div class="col-md-6 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+                    <div class="feature-wrap">
+                        <i class="fa fa-shopping-cart"></i>
+                        <h2>Rent Products</h2>
+                        <h3 class="col-md-9" style="margin-left: -1em;margin-top: -0.5em;">No need to worry about buying stuff that you won't be using for long. Rent products from different categories. Use and them and then return it when you no longer need them.</h3>
+                    </div>
+                </div><!--/.col-md-4-->
+            </div><!--/.services-->
+        </div><!--/.row-->
+
+        <div class="row">
+            <div class="features">
+
+                <div class="col-md-6 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+                    <div class="feature-wrap">
+                        <i class="fa fa-users"></i>
+                        <h2>Create your own marketplace</h2>
+                        <h3 class="col-md-9" style="margin-left: -1em;margin-top: -0.5em;">Your house being cluttered with stuff that you don't use much, but you don't want to part with it or might need it again in future. Have an extra bed or fridge. Or running a business of leasing out stuff to others. Create your own marketplace with us with a personalised account and earn a few extra bucks every month.</h3>
+                    </div>
+                </div><!--/.col-md-4-->
+
+                <div class="col-md-6 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+                    <div class="feature-wrap">
+                        <i class="fa fa-user"></i>
+                        <h2>Personalised Account</h2>
+                        <h3 class="col-md-9" style="margin-left: -1em;margin-top: -0.5em;">Worried about safety of products leased out to someone. Keep a tab on products you have leased out to someone or rented from someone. Don't miss deadlines to pay or collect the rent. Have your own personalised account to aid your marketplace.</h3>
+                    </div>
+                </div><!--/.col-md-4-->
+
+
+            </div><!--/.services-->
+        </div><!--/.row-->
+    </div><!--container-->
+</section><!--Features/Services-->
+<!--</div><!--scrollpsy-->
+
+<!--<div data-spy="scroll" data-target=".navbar" data-offset="12">-->
+<section id="about" class="sep-top-2x sep-bottom-3x" style="background-color:#F3F3F3;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-5">
+                <h1 class="new-font"> How it works</h1>
+            </div>
+
+            <span class="line"></span>
+        </div>
+
+        <div class="row" style="padding-top: 2em;">
+            <div class="col-md-3 icon-gradient">
+                <div class="icon-box icon-horizontal icon-lg">
+                    <div data-wow-delay=".5s" class="icon-content img-circle wow bounceInUp" style="background-color: #3498db;"><i class="fa fa-user-plus" style="color: white;"></i></div>
+                    <div class="icon-box-content" style="margin-left: -0.3em;">
+                        <h2 class="upper" style="color: #3498db;">Create Account</h2>
+                        <p>Create a free account in just a minute. Keep a tab on your rented products and products you have put on rent. </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 icon-gradient">
+                <div class="icon-box icon-horizontal icon-lg">
+                    <div data-wow-delay=".5s" class="icon-content img-circle wow bounceInUp" style="background-color: #98c7f1;"><i class="fa fa-eye" style="color: white;"></i></div>
+                    <div class="icon-box-content" style="margin-left: 0.1em;">
+                        <h2 class="upper" style="color: #98c7f1;">Browse Products</h2>
+                        <p>Select from a wide range of products put on rent by vast community of vendors on our portal.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3  icon-gradient">
+                <div class="icon-box icon-horizontal icon-lg">
+                    <div data-wow-delay=".5s" class="icon-content img-circle wow bounceInUp" style="background-color: #98a9f1;"><i class="fa fa-shopping-cart" style="color: white;"></i></div>
+                    <div class="icon-box-content" style="margin-left: 0.1em;">
+                        <h2 class="upper" style="color: #98a9f1;">Rent Products</h2>
+                        <p>Rent your selected product/products by calling up the vendors and providing them with your details.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 icon-gradient">
+                <div class="icon-box icon-horizontal icon-lg">
+                    <div data-wow-delay=".5s" class="icon-content img-circle wow bounceInUp" style="background-color: #a498f1;"><i class="fa fa-automobile" style="color: white;"></i></div>
+                    <div class="icon-box-content" style="margin-left: 0.3em;">
+                        <h2 class="upper" style="color: #a498f1;">Home Delivery</h2>
+                        <p> Your products will be delivered to your doorstep within 48 hours by your selected vendor.</p>
+                    </div>
+                </div>
+            </div>
+        </div><!--row-->
+    </div><!--container-->
+</section><!--how it works-->
+<!--</div><!--scrollpsy-->-->
+
+
+<!--<div data-spy="scroll" data-target=".navbar" data-offset="12">-->
+<section id="services" class="service-item">
+    <div class="container">
+        <div class="center wow fadeInDown">
+            <h2 class="new-font">Why buy when you can rent!!</h2>
+            <p class="lead">Renting of goods is in no way a substitute for buying goods. When RentBingo or anyone else talks about collaborative consumption it essentially means that we should collaboratively consume things which we do not need to own permanently. There are multiple instances when you need not own something and should be happy with renting it for a short period of time.</p>
+        </div>
+
+        <div class="row row-same-height row-full-height">
+
+            <div class="col-sm-6 col-md-4">
+                <div class="media services-wrap wow fadeInDown">
+                    <div class="pull-left">
+                        <i class="fa fa-bed" style="font-size: 44px;"></i>
+                    </div>
+                    <div class="media-body">
+                        <h3 class="media-heading">Furnitures</h3>
+                        <p>Rent furnitures when you move in a new home or when expecting guests.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-md-4">
+                <div class="services-wrap wow fadeInDown">
+                    <div class="pull-left">
+                        <i class="fa fa-motorcycle" style="font-size: 44px;"></i>
+                    </div>
+                    <div class="media-body">
+                        <h3 class="media-heading">Bikes and cars</h3>
+                        <p>When in a new town for few days, or going out for some road trips, ease up your budget. </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-md-4">
+                <div class="media services-wrap wow fadeInDown">
+                    <div class="pull-left">
+                        <i class="fa fa-motorcycle" style="font-size: 44px;"></i>
+                    </div>
+                    <div class="media-body">
+                        <h3 class="media-heading">Camping Gear</h3>
+                        <p>Cut down your camping budget by renting out Back packs, sleeping bags,tents and more.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row row-same-height row-full-height">
+            <div class="col-sm-6 col-md-4">
+                <div class="media services-wrap wow fadeInDown">
+                    <div class="pull-left">
+                        <i class="fa fa-motorcycle" style="font-size: 44px;"></i>
+                    </div>
+                    <div class="media-body">
+                        <h3 class="media-heading">Electronic Appliances</h3>
+                        <p>Rent electronic appliances that you would be using only for few months or days. </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-md-4">
+                <div class="media services-wrap wow fadeInDown">
+                    <div class="pull-left">
+                        <i class="fa fa-camera-retro fa-3x"></i>
+                    </div>
+                    <div class="media-body">
+                        <h3 class="media-heading">Cameras</h3>
+                        <p>Capture moments you don't wanna miss by renting photography equipments.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-md-4">
+                <div class="media services-wrap wow fadeInDown">
+                    <div class="pull-left">
+                        <i class="fa fa-motorcycle" style="font-size: 44px;"></i>
+                    </div>
+                    <div class="media-body">
+                        <h3 class="media-heading">Event</h3>
+                        <p>Pick dresses for weddings, farewells, interviews, and other event supplies.</p>
+                    </div>
+                </div>
+            </div>
+        </div><!--/.row-->
+    </div><!--/.container-->
+</section><!--/#services-->
+<!--</div><!--scrollpsy-->-->
+
+
+
+
+
+<!--<div data-spy="scroll" data-target=".navbar" data-offset="12">-->
+<section id="testimonials">
+    <div class="clients-area center wow fadeInDown">
+        <h2 class="new-font">Testimonials</h2>
+        <p class="lead">Since the day we started we have made it a goal that each of our customer experiences a "red carpet" service<br>Meet other people who are using our services!</p>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4 wow fadeInDown">
+            <div class="clients-comments text-center">
+                <img src="img/Images/client1.jpg" class="img-circle" alt="">
+                <h3>RentBingo provides one of the most seamless services when it comes to renting goods. Right from logging in to the website, to renting of products, to delivery, the whole process was so smooth, I didn't have to move an inch to get the required items.</h3>
+                <h4><span>-Harshal Patil /</span>  IT Professional</h4>
+            </div>
+        </div>
+        <div class="col-md-4 wow fadeInDown">
+            <div class="clients-comments text-center">
+                <img src="img/Images/client2.jpg" class="img-circle" alt="">
+                <h3>Rentbingo as an online platform took away my worries of building and maintaining my own website. It has also helped me advertise my business quickly</h3>
+                <h4><span>-Vaibhav Mathur /</span>IT Professional</h4>
+            </div>
+        </div>
+        <div class="col-md-4 wow fadeInDown">
+            <div class="clients-comments text-center">
+                <img src="img/Images/client3.jpg" class="img-circle" alt="">
+                <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</h3>
+                <h4><span>-John Doe /</span>  Director of corlate.com</h4>
+            </div>
+        </div>
+    </div>
+</section><!--testimonials-->
+<!--</div><!--scrollpsy-->-->
+
+
+<!--<div data-spy="scroll" data-target=".navbar" data-offset="12">-->
+<section id="contact-info">
+    <div class="center">
+        <h2 class="new-font">How to Reach Us?</h2>
+        <p class="lead"> Feel free to reach out to us anytime!</p>
+    </div>
+    <div class="gmap-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-5 text-center">
+                    <div class="gmap" id='map-canvas'>
+
+                    </div>
+                </div>
+
+                <div class="col-sm-7 map-content">
+                    <ul class="row">
+                        <li class="col-sm-6">
+                            <address>
+                                <h5>Head Office</h5>
+                                <p>#8, 1st Cross, <br>
+                                    28th Main Road, VGS Layout<br>
+                                    Ejipura, Koramangla</p>
+                                <p>Phone:9739770712, 9686513468 <br>
+                                    Email:contact@rentbingo.com</p>
+                            </address>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>  <!--/gmap_area -->
+<!--</div><!--scrollpsy-->-->
+<!--<div data-spy="scroll" data-target=".navbar" data-offset="12">-->
+<section id="contact-page">
+    <div class="container">
+        <div class="center">
+            <h2>Drop Your Message</h2>
+            <p class="lead">Still have some queries, drop us a message and we will reach back to you in no time.</p>
+        </div>
+        <div class="row contact-wrap">
+            <div class="status alert alert-success" style="display: none"></div>
+            <form id="main-contact-form" class="contact-form" name="contact-form" method="post" action="sendemail.php">
+                <div class="col-sm-5 col-sm-offset-1">
+                    <div class="form-group">
+                        <label>Name *</label>
+                        <input type="text" name="name" class="form-control" required="required">
+                    </div>
+                    <div class="form-group">
+                        <label>Email *</label>
+                        <input type="email" name="email" class="form-control" required="required">
+                    </div>
+                    <div class="form-group">
+                        <label>Phone</label>
+                        <input type="number" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>Company Name</label>
+                        <input type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="col-sm-5">
+                    <div class="form-group">
+                        <label>Subject *</label>
+                        <input type="text" name="subject" class="form-control" required="required">
+                    </div>
+                    <div class="form-group">
+                        <label>Message *</label>
+                        <textarea name="message" id="message" required="required" class="form-control" rows="8"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" name="submit" class="btn btn-primary btn-lg" required="required">Submit Message</button>
+                    </div>
+                </div>
+            </form>
+        </div><!--/.row-->
+    </div><!--/.container-->
+</section><!--/#contact-page-->
+<!--</div><!--scrollpsy-->-->
+
+<footer id="footer" class="midnight-blue">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                &copy; 2015 <a target="_blank" href="http://RentBingo.com/">RentBingo.com</a>. All Rights Reserved.
+            </div>
+            <div class="col-sm-6">
+                <ul class="pull-right">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Faq</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="top-bar">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 col-xs-4">
+                    <!--EMpty Column-->
+                </div>
+                <div class="col-sm-6 col-xs-8">
+                    <div class="social">
+                        <ul class="social-share">
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        </div><!--/.container-->
+    </div><!--/.top-bar-->
+</footer><!--/#footer-->
+
+<script src="scripts/js/jquery.js"></script>
+<script src="scripts/js/bootstrap.min.js"></script>
+<script src="scripts/js/jquery.prettyPhoto.js"></script>
+<script src="scripts/js/jquery.isotope.min.js"></script>
+<script src="scripts/js/main-index.js"></script>
+<script src="scripts/js/wow.min.js"></script>
+<script type='text/javascript'>
+
+    $(window).scroll(function() {
+        if ($(document).scrollTop() > 150) {
+            $('.navbar').addClass('shrink');
+        }
+        else {
+            $('.navbar').removeClass('shrink');
+        }
+    });
+
+
+
+
+</script>
+</body>
+</html>

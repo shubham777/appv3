@@ -1,0 +1,140 @@
+
+
+<div class="container">
+    <div class="row profile-text">
+       <strong style="text-decoration: underline">Add a Product</strong>
+    </div>
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-11">
+            <form id="productAdd" class="product-form" role="form" style="display:block;">
+
+                <div style="width: 50%;float:left;">
+
+                    <div class="input-group">
+
+                        <input type="text" class="form-control" placeholder="Product Name" ng-model="product.name"
+                                title="Enter a Product Name" required>
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <input type="text" class="form-control" placeholder="Rent Amount" ng-model="product.rent"  title="Enter product rental price" required style="width:120px;"> &nbsp;
+                        <select class="form-control" ng-model="product.duration" ng-options="duration.name for duration in durations" style="width: 120px;"> </select>
+                    </div>
+
+                    <div class="input-group" style="margin-bottom:10px;">
+
+                        <input type="text" class="form-control" placeholder="Security Deposit"  ng-model="product.securityDeposit" title="Enter Security Deposit">
+                    </div>
+
+                    <div class="input-group" style="margin-bottom:10px;">
+
+                        <textarea class="form-control" placeholder="Product Description"  ng-model="product.description" title="Enter Product description" required></textarea>
+                    </div>
+
+                    <div class="input-group" style="margin-bottom:10px;">
+
+                        <textarea class="form-control" placeholder="Additional Information"  ng-model="product.additional_information" title="Enter Additional Information" required></textarea>
+                    </div>
+
+                    <div class="input-group" style="margin-bottom:10px;">
+
+                        <textarea class="form-control" placeholder="Shipping & Returns Information"  ng-model="product.shipping_returns" title="Enter Shipping & Returns Information" required></textarea>
+                    </div>
+
+                </div>
+
+                <div style="width: 50%;float:right;">
+                    <div class="input-group">
+
+                        <select class="form-control" ng-model="product.category" ng-options="category.name for category in categories" style="width: 120px;" ng-change="change();"> </select> &nbsp;
+                        <select class="form-control" ng-model="product.subCategory" ng-options="subCategory.name for subCategory in subCategories" style="width: 120px;"> </select>
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <input type="text" class="form-control" placeholder="Actual Price" ng-model="product.actualPrice"
+                               title="Enter Actual Product Price" required>
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <!--   <input type="text" class="form-control" placeholder="Vendor ID" ng-model="product.vendorId"  title="Enter Vendor ID" required>-->
+                          <select class="form-control" ng-model="product.vendor" ng-options="vendor.name for vendor in vendors" style="width: 180px;"> </select>
+                     </div>
+                     <!--
+                     <div class="input-group" style="margin-bottom:10px;">
+
+                         <input type="file" class="form-control" placeholder="Product Image"  id="productPic" ng-model="product.imageName" title="Upload Image File" multiple>
+                     </div>
+                      -->
+                     <div class="input-group">
+                         <select class="form-control" ng-model="product.rating" ng-options="rating.name for rating in ratings"> </select> <br/><br/>
+                         <select class="form-control" ng-model="product.status" ng-options="status.name for status in statuses"> </select>
+                     </div>
+                 </div>
+
+                 <div class="input-group">
+                     <button class="btn btn-lg btn-primary btn-block" ng-click="addProduct();" >Add product</button>
+                 </div>
+
+
+             </form>
+
+             <button id="updateProductCode" ng-click="updateProductCode();" style="display: none;">Update Product Code</button>
+         </div>
+     </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-11">
+        <form id="imagesAdd" style="display: none;"  enctype = "multipart/form-data" action="/api/productPhoto" method="post">
+            <div style="margin-left: 13em; margin-top: 2em;">
+                <div class="row profile-text" style="margin-left: -19.5em;">
+                    Upload Images
+                </div>
+                <div class="row">
+
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="productName" ng-model="product.name" placeholder="Product Name"  title="Product Name" name="product[name]" style="width:400px;"/>
+                    </div>
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="productCode" ng-model="product.code" placeholder="Product Code" title="Product Code"  name="product[code]" style="width:400px;"/>
+                    </div>
+
+                    <div class="input-group" style="margin-bottom:10px;">
+                        <input type="file" class="form-control" placeholder="Product Image"  id="productPic"  title="Upload Image File"  style="width:400px;" name="product" multiple>
+                        <br> <p style="margin-left: 9.2em;"><strong>(Maximum 3 Images)</strong></p>
+                        <p><b>Note</b> : If you Skip, the default product Image will be uploaded.</p>
+                    </div>
+                </div>
+                <div class="row" style="margin-left: 1em;">
+                    <div class="col-md-3"><input type="button" id="skipUpload" class="btn btn-lg btn-primary btn-block" style="width:150px;" value="Skip" name="skip" ng-click="skip()"></div>
+                    <div class="col-md-3"><input type="submit" id="uploadImages" class="btn btn-lg btn-primary btn-block" style="width:150px;" value="Upload" name="submit"></div>
+
+
+                </div>
+            </div>
+        </form>
+        </div>
+    </div>
+</div>
+
+ <script type="text/javascript">
+
+     function changeProfileImage(){
+
+         document.getElementById('profileImage').click();
+     }
+
+     function validate(){
+
+         $('#validateButton').click();
+     };
+ </script>

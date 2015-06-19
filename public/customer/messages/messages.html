@@ -1,0 +1,60 @@
+<div class="profile-text">
+   Messages
+ </div>
+
+<div style="margin-left: 7em;margin-top: 1em;z-index:0; position: relative;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10">
+                 <div class="topbar-dialog inbox-dialog" style="width: 800px;min-height:350px;">
+                       <div class="header">
+                             <h3>inbox</h3>
+                       </div>
+
+                         <div class="modal-content">
+                              <ul>
+                                <li class="inbox-item" style="height: 130px;" ng-repeat="message in messages">
+                                   <a href="#">
+                                     <div class="site-icon favicon favicon-stackoverflow" title="Stack Overflow"></div>
+                                        <div class="item-content row">
+                                            <div class="col-md-4">
+                                                <div class="thumbnail-product">
+                                                    <img src={{message.product_image_url}} class="thumbnail-product">
+                                                </div>
+                                                <strong class="item-product-code">{{message.product_code}}</strong>
+                                            </div>
+
+                                          <div class="col-md-8 col-md-push-1">
+                                          <div class="item-header" style="width: 620px;">
+                                               <span class="item-type"><i class="fa fa-envelope"></i></span>
+                                               <span class="item-creation" style="float: right;"><span title="2015-05-04 19:40:41Z">{{message.dateTime}}</span></span>
+                                           </div>
+                                           <div class="item-contact-details">
+                                                {{message.sender_name}}
+                                           </div>
+                                            <div class="item-contact-details">
+                                                {{message.sender_email}}
+                                            </div>
+                                            <div class="item-contact-details">
+                                                {{message.sender_mobile}}
+                                            </div>
+                                           <div class="item-summary" style="width: 550px;">
+                                               <p>
+                                                 {{message.sender_message}}
+                                               </p>
+                                            </div>
+                                          </div>
+                                         </div>
+                                     </a>
+                                 </li>
+
+
+                              </ul>
+                          </div>
+
+                 </div>
+
+            </div>
+        </div>
+    </div>
+</div>

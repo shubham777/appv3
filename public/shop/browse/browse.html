@@ -1,0 +1,327 @@
+
+<div>
+
+
+<!-- Full Page Image Background Carousel Header -->
+<div id="myCarousel" class="carousel slide">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+
+    <!-- Wrapper for Slides -->
+    <div class="carousel-inner">
+        <div class="item active">
+            <!-- Set the first background image using inline CSS below. -->
+            <div class="fill" style="background-image:url('/img/carousel1.jpg');">
+
+            </div>
+            <div class="carousel-caption">
+                <h2></h2>
+            </div>
+
+        </div>
+        <div class="item">
+            <!-- Set the second background image using inline CSS below. -->
+            <div class="fill" style="background-image:url('/img/carousel4.jpg');">
+
+            </div>
+            <div class="carousel-caption">
+                <h2></h2>
+            </div>
+        </div>
+        <div class="item">
+            <!-- Set the third background image using inline CSS below. -->
+            <div class="fill" style="background-image:url('/img/carousel7.jpg');"></div>
+            <div class="carousel-caption">
+                <h2></h2>
+            </div>
+        </div>
+    </div>
+
+    <!-- Controls -->
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+        <span class="icon-prev"></span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+        <span class="icon-next"></span>
+    </a>
+    <div class="container">
+        <div class="section-title upper light">
+            <h2 class="small-space"></h2>
+            <p class="lead"></p>
+            <div class="row">
+                <div class="col-md-8 col-md-push-3" style="position:relative;margin-top: -29em;">
+                    <strong style="text-align: center;"></strong>
+                    <div id="custom-search-input" style=" margin-top: -1px;">
+                        <div class="input-group" style="width: 75%;margin-left: 1em;">
+                            <input type="text" class="search-query form-control" placeholder="Search e.g., Beds, Sherwani, Vehicles, Koramangala etc." style="height:160%;border-radius: 10px;" ng-model="query"/>
+                                <span class="input-group-btn">
+                                    <button class="btn btn-danger" type="button" style="margin-top: 0.7em;">
+                                        <span class="glyphicon glyphicon-search glyphicon-search"></span>
+                                    </button>
+                                </span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+</div>
+
+<!-- Start header Section--><!--
+<section style="background-image:url('http://webneel.com/wallpaper/sites/default/files/images/04-2013/26-rain-drops-falling-on-glass.jpg');" class="header-section fading-title parallax">
+    <div class="section-shade sep-top-2x sep-bottom-2x">
+        <div class="container">
+            <div class="section-title upper light">
+                <h2 class="small-space"></h2>
+                <p class="lead"></p>
+                <div class="row">
+                    <div class="col-md-8 col-md-push-3">
+                    <strong style="text-align: center;"></strong>
+                    <div id="custom-search-input" style=" margin-top: -1px;">
+                        <div class="input-group" style="width: 75%;margin-left: 1em;">
+                            <input type="text" class="search-query form-control" placeholder="Search e.g., Beds, Sherwani, Vehicles, Koramangala etc." style="height:160%;border-radius: 10px;" ng-model="query"/>
+                                <span class="input-group-btn">
+                                    <button class="btn btn-danger" type="button" style="margin-top: 0.7em;">
+                                        <span class="glyphicon glyphicon-search glyphicon-search"></span>
+                                    </button>
+                                </span>
+                        </div>
+                    </div>
+                    </div>
+
+            </div>
+        </div>
+    </div>
+  </div>
+</section>-->
+<!-- End header Section-->
+<!-- Start Shop section-->
+<section style="margin-top: -4em;">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-9 col-md-push-3 sep-top-2x">
+                <div class="row">
+                <div class="filter-prod col-md-4" style="margin-bottom: 1em; margin-left: -2em;">
+
+                    <p style="margin-top: 1em;">Showing 1 -  <select ng-model="noOfVisibleProducts">
+                        <option value=9>9</option>
+                        <option value=12>12</option>
+                        <option value=24>24</option>
+                    </select>  of results</p>
+                </div>
+                <div class="col-md-3 pull-right">
+                    <select name="orderby" class="form-control input-lg rounded" ng-model="orderCriteria" style="height:40px; margin-bottom: 1em;">
+                        <option value="relevant">Sort by relevancy</option>
+                        <option value="popularity">Sort by popularity</option>
+                        <option value="rating">Sort by average rating</option>
+                        <option value="age">Sort by newness</option>
+                        <option value="price">Sort by price: low to high</option>
+                        <option value="price-desc">Sort by price: high to low</option>
+                    </select>
+
+                </div>
+                </div>
+                <div>
+
+                <button ng-click="updateProductsButton()" id="btn1" style="display: none;"></button>
+
+                </div>
+
+
+                <div class="allProductsDiv">
+                    <div class="row">
+                        <ul style="list-style-type: none;">
+                            <li ng-repeat="product in products | filter : query | filter:filterCategory | filter: filterPriceRange" class="ng-animate ng-enter ng-enter-active phone-listing">
+                                <div class="col-md-3 sep-bottom-lg">
+                                    <a href="#/product/{{product.code}}" class="product-image outline-outward" style="height: 180px;width:200px;">
+                                        <img ng-src="{{product.image_url_1}}" alt="{{product.name}}" class="img-responsive" >
+                                    </a>
+                                    <div class="product-title"><span class="upper"></span>
+                                        <p>{{product.name}}</p>
+                                    </div>
+                                    <div class="product-detail">
+                                        <div class="pull-right price-shop text-right">
+                                            <del>&#8377{{product.rent + 90}}</del><ins>&#8377{{product.rent}}</ins>
+                                        </div>
+                                        <div class="rating-product">
+
+                                            <i class="fa fa-star" ng-repeat="i in getNumber(product.rating) track by $index"></i>
+                                            <span style="margin-left: -0.3em;"><i class="fa fa-star-o" ng-repeat="i in getNumber(5 - product.rating) track by $index"></i></span>
+                                            <span style="margin-left: -0.2em;">
+
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="sep-top-sm">
+                    <!-- start pagination-->
+                    <ul class="pager circle">
+                        <li class="previous hidden-xs"><a href="#">←</a></li>
+                        <li><span class="current"><a href="#">1</a></span></li>
+                        <li>2</li>
+                        <li><a href="#">3</a></li>
+                        <li class="next hidden-xs"><a href="#">→</a></li>
+                    </ul>
+                    <!-- end pagination-->
+                </div>
+            </div>
+            <div class="col-md-3 col-md-pull-9 sep-top-2x allCategoriesDiv"><br/>
+
+                <h5 class="widget-title upper sep-bottom-xs" style="margin-top: -5em;" ><b>Products Categories</b></h5><hr>
+                <div style="height: 250px; overflow: scroll;">
+                    <li class="no-decoration" ng-repeat="category in categoryGroup" style="list-style-type: none;">
+                        <div class="checkbox checkbox-primary" style="height: 2.5em;">
+                            <input class="styled" type="checkbox" ng-model="category.on" id="{{category.name}}"/> <label for="{{category.name}}">{{category.name}}</label>
+                        </div>
+                    </li>
+
+                </div>
+                <br/><hr>
+
+                <h5 class="widget-title upper sep-bottom-xs"><b>Localities</b></h5><hr>
+                <div style="height: 250px; overflow: scroll;">
+                    <li class="no-decoration" ng-repeat="locality in localityGroup" style="list-style-type: none;">
+                        <div class="checkbox checkbox-primary" style="height: 2.5em;">
+                            <input class="styled" type="checkbox" ng-model="locality.on" id="{{locality.name}}"/> <label for="{{locality.name}}">{{locality.name}}</label>
+                        </div>
+                    </li>
+                </div>
+                <br/>
+                <hr>
+
+
+
+                <h5 class="widget-title upper sep-bottom-xs"><b>Rental Price</b></h5><hr>
+                <div style="height: 175px; overflow: scroll;">
+                    <li class="no-decoration" ng-repeat="priceRange in priceRangeGroup" style="list-style-type: none;">
+                        <div class="checkbox checkbox-primary" style="height: 2.5em;">
+                            <input class="styled" type="checkbox" ng-model="priceRange.on" id="{{priceRange.name}}"/> <label for="{{priceRange.name}}"> &#8377 {{priceRange.name}} &#8377</label>
+                        </div>
+                    </li>
+
+                </div>
+                <br/>
+                <hr>
+
+
+                <h5 class="widget-title upper sep-bottom-xs">Top rated products</h5>
+
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Shop section-->
+<!-- Other product-->
+<section class="widget_products sep-top-2x">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-push-4">
+                <h5 class="widget-title-bordered upper">Best seller</h5>
+                <div class="row">
+
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h5 class="widget-title-bordered upper">Best seller</h5>
+                <div class="row">
+                    <div class="col-md-6">
+
+                     </div>
+                 </div>
+             </div>
+        </div>
+        </div>
+</section>
+<!-- End Other product-->
+
+<div class="sep-top-2x">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="text-center">
+                    <p class="lead">Nowadays, everybody wants an online shop. With The Company, this won’t be a problem. We made sure that WooCommerce is fully integrated in the design of The Company.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="text-center"><img alt="" src="#" class="sep-top-sm img-responsive">
+                    <ul class="shop-info-link sep-top-2x sep-bottom-lg">
+                        <li class="sep-bottom-sm"><a href="#" target="_blank">Shipping &amp; Returns</a></li>
+                        <li class="sep-bottom-sm"><a href="#" target="_blank">Delivery Information</a></li>
+                        <li class="sep-bottom-sm"><a href="#" target="_blank">Privacy Policy</a></li>
+                        <li class="sep-bottom-sm"><a href="#" target="_blank">Terms &amp; Conditions</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Start call to action section-->
+<section class="call-to-action bg-primary sep-top-md sep-bottom-md">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <h5 class="action-title upper light">Feel free to contact us at any time</h5>
+            </div>
+            <div class="col-md-3 text-right"><a  class="btn btn-light btn-bordered btn-lg" id="contactUsButton">Contact us</a></div>
+        </div>
+    </div>
+</section>
+<!-- End call to action section-->
+
+<!-- Start Footer section-->
+<footer id="footer" style="margin-top: -2em;">
+    <div class="inner sep-top-md sep-bottom-md">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center"><small class="sep-top-xs">Please feel free to contact us at anytime!</small>
+                    <ul class="social-icon sep-top-sm">
+                        <li><a href="#" class="fa fa-twitter fa-2x"></a></li>
+                        <li><a href="#" class="fa fa-facebook fa-2x"></a></li>
+                        <li><a href="#" class="fa fa-google-plus fa-2x"></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="copyright sep-top-xs sep-bottom-xs">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center"><small>Copyright 2015 @ rentlife.in. All rights reserved.</small></div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- End Footer section-->
+
+
+<div id="back_to_top"><a href="#" class="fa fa-arrow-up fa-lg"></a></div>
+
+
+</div>
+
+</div>
+
+<script type="text/javascript">
+
+    $('.carousel').carousel({
+        interval: 2000 //changes the speed
+    });
+
+    $('#contactUsButton').on('click', function(){debugger;
+       $('#contactusModal').modal('show');
+    });
+</script>

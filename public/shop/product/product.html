@@ -1,0 +1,617 @@
+<!-- >
+<section style="background-color:#c52d2f;height: 500px;" class="header-section fading-title parallax">
+    <div style="">
+            <img src="/img/products/demo11.jpg" style="max-height: 100%;width: 100%;margin-top: -10em;">
+
+    </div>
+</section>
+-->
+
+
+
+<!-- Start Shop section-->
+<section>
+    <div class="container">
+        <div class="row">
+            <!-- Start Sidebar-->
+
+            <div class="col-md-5 sep-top-2x">
+                <div class="product-images">
+                    <a href={{product.mainImageUrl}}>
+                        <img title="" alt="" ng-src={{product.mainImageUrl}} itemprop="image" class="main-image" id="mainImageUrl">
+                    </a>
+                </div>
+                <div class="product-thumbnails">
+                    <a class="zoom first" style="height: 80px; width: 100px;">
+                        <img title="" alt="" ng-src={{product.imageUrl_1}} class="img-responsive" ng-click="setImage(product.imageUrl_1)">
+                    </a>
+                    <a class="zoom first" style="height: 80px; width: 85px;">
+                        <img title="" alt="" ng-src={{product.imageUrl_2}} class="img-responsive" ng-click="setImage(product.imageUrl_2)">
+                    </a>
+                    <a  class="zoom first" style="height: 80px; width: 85px;">
+                        <img title="" alt="" ng-src={{product.imageUrl_3}} class="img-responsive" ng-click="setImage(product.imageUrl_3)">
+                    </a>
+                </div>
+            </div>
+
+            <!-- End Sidebar-->
+            <!-- Start Content-->
+            <div class="col-md-7 sep-top-lg">
+                <div class="main-product-title">
+                    <ul class="social-icon pull-right">
+                        <li><a ng-click="likeProduct()" title="Like"><span><i class="fa fa-heart fa-lg"></i></span></a></li>
+
+                        <li><a href="#" title="Share on twitter"><i class="fa fa-twitter fa-lg"></i></a></li>
+                        <li><a href="#" title="Share on facebook"><i class="fa fa-facebook-square fa-lg"></i></a></li>
+
+                    </ul>
+
+                    <h2><span itemprop="name" style="margin-left: -0.5em;">{{product.name}}</span><small itemprop="brand"></small></h2>
+                    <meta itemprop="identifier" content="mpn:12345-6789">
+                </div>
+                <div class="rate sep-top-xs" style="margin-left: -2em;">
+                    <div>
+                        <div class="container">
+                            <div>
+                                <div class="alert alert-success">
+
+                                    <star-rating id="review" rating='rating1' max-rating=5 click="click(param)" mouse-hover="mouseHover(param)" mouse-leave="mouseLeave (param)"></star-rating>
+                                    <span class="label label-info">Rating: {{rating1}}</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                </div>
+                <div itemprop="description" class="sep-top-sm">
+                    <p class="lead"> {{product.description}}</p>
+                </div>
+                <div itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="price-shop sep-top-xs">
+                    <meta itemprop="priceCurrency" content="USD">
+                    <del>&#8377{{product.actualPrice}}</del><ins><span itemprop="price">&#8377{{product.rent}}</span></ins>
+                </div>
+                 <div class="row">
+                        <div class="col-md-9 col-sm-6 sep-top-md" id="product-buttons">
+                            <button type="button" class="btn btn-primary btn-lg"><i class="fa fa-shopping-cart"></i> Rent</button>
+                            <button type="button" class="btn btn-primary btn-lg" id="btnMessage"><i class="fa fa-envelope"></i> Message Owner</button>
+                        </div>
+                    </div>
+
+                <ul class="sep-top-lg product-category" id="category-buttons">
+                    <li>
+                        <h5 class="upper" style="font-weight: 600;">Category</h5>&nbsp;<button class="btn btn-xs btn-primary btn-custom">{{product.categoryName}}</button>&nbsp;<button class="btn btn-xs btn-primary btn-custom">{{product.subCategoryName}}</button>&nbsp;
+                    </li>
+                    <!--
+                    <li>
+                        <h6 class="upper">Tags</h6><a href="#">Winter collection</a>,&nbsp;<a href="#">Osaka</a>,&nbsp;<a href="#">Sale</a>
+                    </li>
+                    -->
+                </ul>
+            </div>
+            <!-- End Content-->
+        </div>
+        <div class="row">
+            <!-- Start Content-->
+            <div class="col-md-7 col-md-push-5 sep-top-md">
+                <!-- start accordion group-->
+                <div id="accordion" class="accordion-group">
+                    <!-- start accordion item-->
+                    <div class="accordion-item panel">
+                        <div class="accordion-heading upper"><a data-toggle="collapse" data-parent="#accordion" href="#collapse0" class="accordion-toggle">Product Description<i class="accordion-icon fa fa-minus"></i></a></div>
+                        <div id="collapse0" class="accordion-body panel-collapse in">
+                            <p>
+                              {{product.description}}
+                            </p>
+                        </div>
+                    </div>
+                    <!-- end accordion item-->
+                    <!-- start accordion item-->
+                    <div class="accordion-item panel">
+                        <div class="accordion-heading upper"><a data-toggle="collapse" data-parent="#accordion" href="#collapse1" class="accordion-toggle">Additional Information<i class="accordion-icon fa fa-plus"></i></a></div>
+                        <div id="collapse1" class="accordion-body panel-collapse collapse">
+                            <p>
+                                {{product.additionalInformation}}
+                            </p>
+                        </div>
+                    </div>
+                    <!-- end accordion item-->
+                    <!-- start accordion item-->
+                    <div class="accordion-item panel">
+                        <div class="accordion-heading upper"><a data-toggle="collapse" data-parent="#accordion" href="#collapse2" class="accordion-toggle">Shipping &amp; Returns<i class="accordion-icon fa fa-plus"></i></a></div>
+                        <div id="collapse2" class="accordion-body panel-collapse collapse">
+                            <p>
+                               {{product.shippingReturns}}.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- end accordion item-->
+                </div>
+                <!-- end accordion group-->
+            </div>
+            <!-- End Content-->
+            <!-- Start Sidebar-->
+            <div class="col-md-5 col-md-pull-7 sep-top-md" ng-controller="reviewsController">
+
+                <!-- start Reviews-->
+                <section id="rate-product">
+
+                    <div class="container" style="margin-left: 2em;margin-top: 1em;">
+                        <div class="row">
+                            <h5 class="widget_title">Reviews ({{noOfReviews}})</h5>
+
+                            <article itemprop="review" itemscope itemtype="http://data-vocabulary.org/Review" class="sep-bottom-xs media media-bordered" ng-repeat="review in reviews">
+                                <a href="#" class="pull-left" style="margin-top: 3.3em;">
+                                <img src="/img/batman.jpg" alt="" width="50" class="media-object img-circle"></a>
+                                <div class="media-body">
+                                    <footer>
+                                        <div itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating" class="rate">
+                                            <meta itemprop="ratingValue" content="3">
+                                           <i class="fa fa-star" ng-repeat="i in getNumber(review.rating) track by $index"></i>
+                                          <span style="margin-left: -0.2em;">
+                                           <i class="fa fa-star-o" ng-repeat="i in getNumber(maxRating-review.rating)"></i>
+                                          </span>
+
+                                            <small>
+                                            <meta content="2011-04-01T14:07" itemprop="publishDate">{{review.createdAt}}</small>
+                                        </div>
+                                        <h5 itemprop="author" class="media-heading">{{review.name}}</h5>
+                                        <p itemprop="reviewBody">{{review.reviewMessage}}</p>
+                                    </footer>
+                                </div>
+                            </article>
+                            <!--
+                            <article itemprop="review" itemscope itemtype="http://data-vocabulary.org/Review" class="sep-bottom-xs media media-bordered">
+                                <a href="#" class="pull-left" style="margin-top: 3.3em;">
+                                    <img src="/img/batman.jpg" alt="" width="50" class="media-object img-circle"></a>
+                                <div class="media-body">
+                                    <footer>
+                                        <div itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating" class="rate">
+                                            <meta itemprop="ratingValue" content="3">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <i class="fa fa-star-o"></i><small>
+                                            <meta content="2011-04-01T14:07" itemprop="publishDate">2 hours ago</small>
+                                        </div>
+                                        <h5 itemprop="author" class="media-heading">Scott Sanchez</h5>
+                                        <p itemprop="reviewBody">Pellentesque pellentesque pharetra lacus, eget aliquet mi mattis eu. Cum sociis natoque penatibus et magnis.</p>
+                                    </footer>
+                                </div>
+                            </article>
+                            -->
+                        </div><br><hr>
+                        <div class="row">
+                        <a onclick="toggleReviewForm();" style="cursor: pointer;"><h4 style="color:#c52d2f;"><u> Write a review</u>  </h4></a>
+                            <form id="reviewForm" style="display: none;">
+                                <div class="input-group" style="width: 250px;margin-left: -1em;" >
+                                    <div class="container">
+
+                                            <div class="alert alert-warning">
+                                                <star-rating  rating='rating2' max-rating=5 click="click(param)" mouse-hover="mouseHover(param)" mouse-leave="mouseLeave (param)"></star-rating>
+                                                <span class="label label-info">Rating: {{rating2}}</span>
+                                            </div>
+
+                                    </div>
+
+                                </div>
+
+                             <div class="input-group">
+
+                                 <input type="text" class="form-control" name="nameReview" placeholder="Name" ng-model="review.name" autofocus required>
+                             </div><br>
+                             <div class="input-group" style="margin-bottom:10px;margin-top: -7px;">
+
+                                 <textarea id="reviewMessage" class="form-control" style="height: 80px;" placeholder="Write Your review of the product." ng-model="review.message" required></textarea>
+                             </div>
+                                <div class="col-md-9 col-sm-6 " id="review-buttons">
+                                   <div class="col-md-3"> <button type="button" class="btn btn-primary btn-lg" ng-click="reset();"> Reset</button> </div>
+                                    <div class="col-md-3 col-md-push-9">  <button type="button" class="btn btn-primary btn-lg" id="btnReview" ng-click="submitReview();"> Submit</button></div>
+                                    </div>
+                         </form>
+
+                        </div>
+                        <br>
+                        <br><br>
+                        <div class="row">
+                            <div class="col-md-3"></div>
+                        </div>
+
+                    </div>
+                </section>
+                <!-- End Reviews-->
+            </div>
+            <!-- End Sidebar-->
+        </div>
+    </div>
+    <button id="updatePage" ng-click="updatePage();" style="display: none;">Hello</button>
+</section>
+<!-- End Shop section-->
+<!--
+<section class="widget_products sep-top-2x">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h5 class="widget-title-bordered upper">Best seller</h5>
+                <div class="row">
+                    <div class="col-md-6">
+                        <ul class="widget widget-media sep-bottom-lg">
+                            <li class="media media-bordered"><a href="#" class="pull-left"><img src="/img/products/1.jpg" alt="Sunny Tank Selected Femme" width="82" height="100" class="img-responsive"></a>
+                                <div class="media-body"><small class="upper">woman</small>
+                                    <h6 class="media-heading"><a href="#">Sunny Tank Selected Femme</a></h6>
+                                    <div class="product-detail">
+                                        <div class="rate"><i class="fa fa-star active"></i><i class="fa fa-star active"></i><i class="fa fa-star active"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+                                        <div class="price-shop">
+                                            <del>$19.00</del><ins>$15.00</ins>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="media media-bordered"><a href="#" class="pull-left"><img src="/img/products/5.jpg" alt="Dublin Blue Shirt" width="82" height="100" class="img-responsive"></a>
+                                <div class="media-body"><small class="upper">man</small>
+                                    <h6 class="media-heading"><a href="#">Dublin Blue Shirt</a></h6>
+                                    <div class="product-detail">
+                                        <div class="rate"><i class="fa fa-star active"></i><i class="fa fa-star active"></i><i class="fa fa-star active"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+                                        <div class="price-shop">
+                                            <del>$32.00</del><ins>$30.00</ins>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="media media-bordered"><a href="#" class="pull-left"><img src="/img/products/7.jpg" alt="Woman's Jeans" width="82" height="100" class="img-responsive"></a>
+                                <div class="media-body"><small class="upper">woman</small>
+                                    <h6 class="media-heading"><a href="#">Woman's Jeans</a></h6>
+                                    <div class="product-detail">
+                                        <div class="rate"><i class="fa fa-star active"></i><i class="fa fa-star active"></i><i class="fa fa-star active"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+                                        <div class="price-shop">
+                                            <del>$64.00</del><ins>$58.00</ins>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="widget widget-media sep-bottom-lg">
+                            <li class="media media-bordered"><a href="#" class="pull-left"><img src="/img/products/3.jpg" alt="Heaven White Shirt" width="82" height="100" class="img-responsive"></a>
+                                <div class="media-body"><small class="upper">woman</small>
+                                    <h6 class="media-heading"><a href="#">Heaven White Shirt</a></h6>
+                                    <div class="product-detail">
+                                        <div class="rate"><i class="fa fa-star active"></i><i class="fa fa-star active"></i><i class="fa fa-star active"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+                                        <div class="price-shop">
+                                            <del>$25.00</del><ins>$18.50</ins>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="media media-bordered"><a href="#" class="pull-left"><img src="/img/products/6.jpg" alt="Robert jacket" width="82" height="100" class="img-responsive"></a>
+                                <div class="media-body"><small class="upper">man</small>
+                                    <h6 class="media-heading"><a href="#">Robert jacket</a></h6>
+                                    <div class="product-detail">
+                                        <div class="rate"><i class="fa fa-star active"></i><i class="fa fa-star active"></i><i class="fa fa-star active"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+                                        <div class="price-shop">
+                                            <del>$49.00</del><ins>$39.90</ins>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="media media-bordered"><a href="#" class="pull-left"><img src="/img/products/2.jpg" alt="Osaka Men's Shirt" width="82" height="100" class="img-responsive"></a>
+                                <div class="media-body"><small class="upper">man</small>
+                                    <h6 class="media-heading"><a href="#">Osaka Men's Shirt</a></h6>
+                                    <div class="product-detail">
+                                        <div class="rate"><i class="fa fa-star active"></i><i class="fa fa-star active"></i><i class="fa fa-star active"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+                                        <div class="price-shop">
+                                            <del>$18.50</del><ins>$14.00</ins>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</section>
+-->
+<!-- End Other product-->
+<!-- Start Client section-->
+
+<br>
+<hr>
+<br>
+<!-- Start call to action section-->
+<section class="call-to-action bg-primary sep-top-md sep-bottom-md">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <h5 class="action-title upper light">HAVE ANY QUESTIONS?</h5>
+            </div>
+            <div class="col-md-3 text-right"><a id="contactButton" class="btn btn-light btn-bordered btn-lg">Contact us</a></div>
+        </div>
+    </div>
+</section>
+<!-- End call to action section-->
+
+<!-- Message modal -->
+<div class="modal fade" id="messageModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true" ng-controller="loginCtrl">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <div>
+                    <h4 style="color: #c52d2f;">Fill up the form</h4>
+                </div>
+
+            </div>
+            <div>
+                <div class="modal-body">
+                    <div class="msg-holder">
+                        <div class="msg"></div>
+                    </div>
+
+
+                    <form id="message" class="login-form" role="form">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
+                            <input type="text" class="form-control" name="nameMessage" placeholder="Name" ng-model="message.name" autofocus required>
+                        </div>
+
+
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
+                            <input type="email" class="form-control" placeholder="Email Address" ng-model="message.email"
+                                   pattern="([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?" title="Enter a valid email address" required>
+                        </div>
+
+
+                        <div class="input-group" style="margin-bottom:10px;">
+                            <span class="input-group-addon"><i class="fa fa-mobile fa-fw"></i></span>
+                            <input type="mobile" class="form-control" placeholder="Mobile" pattern="[0-9]{10}" ng-model="message.mobile" title="Enter a valid mobile number" required>
+                        </div>
+
+                        <div class="input-group" style="margin-bottom:10px;margin-top: -7px;">
+                            <span class="input-group-addon"><i class="fa fa-envelope-square fa-fw"></i></span>
+                            <textarea id="textMessage" class="form-control" style="height: 109px;" placeholder="Your Message e.g., Hey! I am interested in this product." ng-model="message.textMessage" required></textarea>
+                        </div>
+
+                        <button class="btn btn-lg btn-primary btn-block" type="submit" id="submitMessage" ng-click="messageOwner();" ng-disabled="validateMessageForm();">Send Message&nbsp;<i class="fa fa-send"></i></button>
+                    </form>
+
+                </div>
+
+                <div class="modal-footer">
+                    <p>Your credentials will be kept private.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Contact Us modal -->
+<div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true" ng-controller="contactCtrl">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <div>
+                    <h4 style="color: #c52d2f;">Fill up the form</h4>
+                </div>
+
+            </div>
+            <div>
+                <div class="modal-body">
+                    <div class="msg-holder">
+                        <div class="msg"></div>
+                    </div>
+
+
+                    <form id="contactUs" class="login-form" role="form">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
+                            <input type="text" class="form-control" name="nameContact" placeholder="Name" ng-model="contact.name" autofocus required>
+                        </div>
+
+
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
+                            <input type="email" class="form-control" placeholder="Email Address" ng-model="contact.email"
+                                   pattern="([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?" title="Enter a valid email address" required>
+                        </div>
+
+
+                        <div class="input-group" style="margin-bottom:10px;">
+                            <span class="input-group-addon"><i class="fa fa-mobile fa-fw"></i></span>
+                            <input type="mobile" class="form-control" placeholder="Mobile" pattern="[0-9]{10}" ng-model="contact.mobile" title="Enter a valid mobile number" required>
+                        </div>
+
+                        <div class="input-group" style="margin-bottom:10px;margin-top: -7px;">
+                            <span class="input-group-addon"><i class="fa fa-envelope-square fa-fw"></i></span>
+                            <textarea id="messageContact" class="form-control" style="height: 109px;" placeholder="How can we help you?" ng-model="contact.message" required></textarea>
+                        </div>
+
+                        <button class="btn btn-lg btn-primary btn-block" type="submit" id="submitContact" ng-click="contactUs();" ng-disabled="validateContactForm();">Send Message&nbsp;<i class="fa fa-send"></i></button>
+                    </form>
+
+                </div>
+
+                <div class="modal-footer">
+                    <p>Your credentials will be kept private.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="thankMessageModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <strong style="color: #c52d2f;">Message Sent</strong>
+
+            </div>
+
+            <div class="modal-body">
+                <div class="msg-holder">
+                    <div class="msg"></div>
+                </div>
+                Thank you for sending the message. Kindly wait for the owner to contact you back.
+
+            </div>
+
+            <div class="modal-footer">
+                <span><a id="thankSignUplink">Sign Up</a>&nbsp;to explore our services.</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="thankContactModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <strong style="color: #c52d2f;">Message Sent</strong>
+
+            </div>
+
+            <div class="modal-body">
+                <div class="msg-holder">
+                    <div class="msg"></div>
+                </div>
+                Thank you for sending the message. Kindly wait for us to contact you back.
+
+            </div>
+
+            <div class="modal-footer">
+               <span><a id="thankSignUp">Sign Up</a>&nbsp;to explore our services.</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="likeThankModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <strong style="color: #c52d2f;">Product Liked</strong>
+
+            </div>
+
+            <div class="modal-body">
+                <div class="msg-holder">
+                    <div class="msg"></div>
+                </div>
+                Thank you for liking the product
+
+            </div>
+
+            <div class="modal-footer">
+                <span><a id="likeSignUp">Sign Up</a>&nbsp;to explore our services.</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Start Footer section-->
+<footer id="footer" style="margin-top: -2em;">
+    <div class="inner sep-top-md sep-bottom-md">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center"><small class="sep-top-xs">Please feel free to contact us at anytime!</small>
+                    <ul class="social-icon sep-top-sm">
+                        <li><a href="#" class="fa fa-twitter fa-2x"></a></li>
+                        <li><a href="#" class="fa fa-facebook fa-2x"></a></li>
+                        <li><a href="#" class="fa fa-google-plus fa-2x"></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="copyright sep-top-xs sep-bottom-xs">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center"><small>Copyright 2015 @ rentbingo.com. All rights reserved.</small></div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- End Footer section-->
+
+
+        <script type="text/javascript">
+
+
+
+            $(document).ready(function(){
+
+                $("#accordion").on('click', '.accordion-toggle', function(event){
+                     var currentTag = $(this).find('i');
+                    if(currentTag.hasClass('fa-minus')){
+                        currentTag.removeClass().addClass('accordion-icon fa fa-plus');
+                    }
+                    else
+                    {
+                        currentTag.removeClass().addClass('accordion-icon fa fa-minus');
+                    }
+
+                    event.preventDefault();
+
+                });
+
+                function openMessageModal(){
+                    debugger;
+                    $('#messageModal').modal('show');
+
+                };
+
+                $('#btnMessage').on('click', openMessageModal);
+                $('#messageModal').on('shown.bs.modal', function () {
+                    // do something…
+                    $("[name = 'nameMessage']").focus();
+                });
+
+                $('#contactButton').on('click', function(){
+                    $('#contactModal').modal('show');
+                });
+
+                $('#thankSignUp').on('click', function(){
+                    $('#thankContactModal').modal('hide');
+                    $('#loginModal').modal('show');
+                });
+                $('#contactModal').on('shown.bs.modal', function () {
+                    // do something…
+                    $("[name = 'nameContact']").focus();
+                });
+                $('#thankSignUplink').on('click', function(){
+                    $('#thankMessageModal').modal('hide');
+                    $('#loginModal').modal('show');
+                });
+                $('#likeSignUp').on('click', function(){
+                    $('#likeThankModal').modal('hide');
+                    $('#loginModal').modal('show');
+                });
+
+                $('a.zoom.first').on('click', function(){
+                    $('#mainImageUrl').addClass('animated bounceInUp');
+                    setTimeout(function(){
+                        $('#mainImageUrl').removeClass('animated bounceInUp');
+                    },1000);
+
+                });
+
+            });
+
+            function toggleReviewForm(){
+                $('#reviewForm').fadeToggle();
+            };
+
+
+
+        </script>

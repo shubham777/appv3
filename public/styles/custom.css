@@ -1,0 +1,68 @@
+.img-responsive {
+    height: 165px;
+    width: 110%;    
+    }
+    
+    .underline{
+    
+    border-top: 3px solid black;
+    height:1px;
+    width:200px;
+    }
+        
+    .btn-primary{
+     background-color: #3498db;
+        border-color: #3498db;
+    }    
+     
+    .icon-box .icon-content {
+      background-color: #3498db;
+    }
+     
+    .text-primary{
+     color: #3498db;
+    }
+    
+    .section-title span{
+     color: #3498db;
+    }
+    
+    .product-image
+    .bullet{
+     background: #3498db;
+    }
+        
+    .outline-outward:before {
+      border: 6px solid #3498db;
+    }   
+     .rating-input i, .rate i {
+      color: #3498db;
+    }
+     .pager li > span, .pager li > a:hover {
+      background: #3498db;
+      border-color: #3498db;
+      color: #ffffff;
+    }
+    .navbar-standard .navbar-nav .badge {
+      background: #1abc9c;
+    }
+        
+    ul#one-page-menu.nav.navbar-nav.navbar-left > li > a:hover,
+     ul#one-page-menu.nav.navbar-nav.navbar-left > li > a:focus {
+    
+    color:black;
+    }
+    
+    a#login:hover,
+    a#login:focus    {
+    color:black;
+    } 
+    
+    ul#one-page-menu.nav.navbar-nav.navbar-left > li > a > .active {
+    color:black;
+    }  
+    
+    .btn-primary:hover{
+    background: #9b59b6;
+    border-color: #9b59b6;    
+    }    

@@ -1,0 +1,22 @@
+{
+    "name"         : "rentbingo",
+    "version"      : "0.0.1",
+    "description"  : "E-commerce Application",
+    "main"         : "server.js",
+    "author"       : "Shubham",
+    "private"      : true,
+    "dependencies" : {
+        "express"    : "~4.7.2",      
+        "morgan"     : "~1.2.2",
+        "body-parser": "~1.5.2",
+        "method-override": "~2.1.2",
+        "http-server": "^0.6.1",
+        "bower": "^1.3.1",
+        "shelljs": "^0.2.6",
+        "node-logentries": "0.0.2",
+        "multer": "~0.1.6",
+        "parse" : "1.4.2",
+        "mandrill-api" : "1.0.45"
+
+    }
+}

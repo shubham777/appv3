@@ -1,0 +1,103 @@
+<div class="container">
+    <div class="row profile-text">
+       <strong style="text-decoration: underline"> Add a Vendor </strong>
+    </div>
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-11">
+            <form id="vendorInfo" class="login-form" role="form">
+
+                <div style="width: 50%;float:left;">
+                    <div class="input-group">
+
+                        <input type="text" class="form-control" name="name" placeholder="Full Name" ng-model="vendor.name"
+                               title="Enter Your Full Name"  required>
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <input type="email" class="form-control" placeholder="Email Address" ng-model="vendor.email"
+                               pattern="([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?" title="Enter a valid email address">
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <input type="mobile" class="form-control" placeholder="Contact No" ng-model="vendor.phone1" pattern="[0-9]{10}" title="Enter a valid mobile number" required>
+                    </div>
+
+                    <div class="input-group" style="margin-bottom:10px;">
+
+                        <input type="mobile" class="form-control" placeholder="Alternate Contact No" pattern="[0-9]{10}" ng-model="vendor.phone2" title="Enter a valid mobile number">
+                    </div>
+
+                    <div class="input-group" style="margin-bottom:10px;">
+                         <textarea class="form-control" placeholder="Full Address"  ng-model="vendor.address" title="Enter Your Full Address" required></textarea>
+                    </div>
+
+                </div>
+
+                <div style="width: 50%;float:right;">
+                    <div class="input-group">
+
+                        <select class="form-control" ng-model="vendor.state" ng-options="state.name for state in states"> </select>
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <input type="text" class="form-control" placeholder="City" ng-model="vendor.city"
+                               title="Enter Your City" required>
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <input type="text" class="form-control" placeholder="Pincode" ng-model="vendor.pincode" pattern="[0-9]{6}" title="Enter a valid pincode" required>
+                    </div>
+
+                    <div class="input-group" style="margin-bottom:10px;">
+
+                        <input type="text" class="form-control" placeholder="Country"  ng-model="vendor.country" title="Enter a valid Country"  ng-disabled="true" required>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <button class="btn btn-lg btn-primary btn-block" ng-click="addVendor();" ng-disabled="validateUpdation();">Add Vendor</button>
+                </div>
+
+
+            </form>
+
+            <button id="updateForm" ng-click="updateForm();" style="display: none;">Hello</button>
+
+        </div>
+
+    </div>
+</div>
+
+<div class="modal fade" id="thankYouModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                Vendor Created.
+
+            </div>
+
+            <div class="modal-body">
+                <div class="msg-holder">
+                    <div class="msg"></div>
+                </div>
+                Congratulations vendor has been created.
+
+            </div>
+
+            <div class="modal-footer">
+
+            </div>
+        </div>
+    </div>
+</div>

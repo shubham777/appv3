@@ -1,0 +1,155 @@
+[
+    {
+        "age": 0,
+        "id": "Product1",
+        "imageUrl": "/app/img/products/4.jpg",
+        "name": "Product1",
+        "popularity" : 12,
+        "price" : 300,
+        "category" : "Furniture",
+        "subCategory" : "Beds",
+        "locality" : "Koramangala",
+        "rating" : 4
+    },
+    {
+        "age": 1,
+        "id": "Product2",
+        "imageUrl": "/app/img/products/4.jpg",
+        "name": "Product2",
+        "popularity" : 11,
+        "price" : 350,
+        "category" : "Furniture",
+        "subCategory" : "Beds",
+        "locality" : "Indiranagar",
+        "rating" : 3
+
+    },
+    {
+        "age": 2,
+        "id": "Product3",
+        "imageUrl": "/app/img/products/4.jpg",
+        "name": "Product3",
+        "popularity" : 10,
+        "price" : 350,
+        "category" : "Furniture",
+        "subCategory" : "Tables",
+        "locality" : "BTM Layout",
+        "rating" : 5
+    },
+    {
+        "age": 3,
+        "id": "Product4",
+        "imageUrl": "/app/img/products/4.jpg",
+        "name": "Product4",
+        "popularity" : 9,
+        "price" : 500,
+        "category" : "Furniture",
+        "subCategory" : "Chairs",
+        "locality" : "HSR Layout",
+        "rating" : 1
+
+    },
+    {
+        "age": 4,
+        "id": "Product5",
+        "imageUrl": "/app/img/products/4.jpg",
+        "name": "Product5",
+        "popularity" : 8,
+        "price" : 800,
+        "category" : "Furniture",
+        "subCategory" : "Sofas",
+        "locality" : "Indiranagar",
+        "rating" : 3
+
+    },
+    {
+        "age": 5,
+        "id": "Product6",
+        "imageUrl": "/app/img/products/4.jpg",
+        "name": "Product6",
+        "popularity" : 7,
+        "price" : 200,
+        "category" : "Vehicles",
+        "subCategory" : "Bikes",
+        "locality" : "Koramangala",
+        "rating" : 4
+
+    },
+    {
+        "age": 6,
+        "id": "Product7",
+        "imageUrl": "/app/img/products/4.jpg",
+        "name": "Product7",
+        "popularity" : 6,
+        "price" : 300,
+        "category" : "Apparels",
+        "subCategory" : "Wedding Wear",
+        "locality" : "Ejipura",
+        "rating" : 3
+
+    },
+    {
+        "age": 7,
+        "id": "Product8",
+        "imageUrl": "/app/img/products/4.jpg",
+        "name": "Product8",
+        "popularity" : 5,
+        "price" : 250,
+        "category" : "Vehicles",
+        "subCategory" : "Bikes",
+        "locality" : "HSR Layout",
+        "rating" : 1
+
+    },
+    {
+        "age": 8,
+        "id": "Product9",
+        "imageUrl": "/app/img/products/4.jpg",
+        "name": "Product9\u2122",
+        "popularity" : 4,
+        "price" : 550,
+        "category" : "Vehicles",
+        "subCategory" : "Cars",
+        "locality" : "Koramangala",
+        "rating" : 4
+    },
+    {
+        "age": 9,
+        "id": "Product10",
+        "imageUrl": "/app/img/products/4.jpg",
+        "name": "Product10\u2122",
+        "popularity" : 3,
+        "price" : 500,
+        "category" : "Adventure",
+        "subCategory" : "Camping",
+        "locality" : "BTM Layout",
+        "rating" : 2
+
+    },
+    {
+        "age": 10,
+        "id": "Product11",
+        "imageUrl": "/app/img/products/4.jpg",
+        "name": "Product11",
+        "popularity" : 2,
+        "price" : 350,
+        "category" : "Apparels",
+        "subCategory" : "Formals",
+        "locality" : "Koramangala",
+        "rating" : 4
+    },
+    {
+        "age": 11,
+        "id": "Product12",
+        "imageUrl": "/app/img/products/4.jpg",
+        "name": "Product12",
+        "popularity" : 12,
+        "price" : 140,
+        "category" : "Vehicles",
+        "subCategory" : "Cars",
+        "locality" : "Ejipura",
+        "rating" : 3
+
+    }
+
+]

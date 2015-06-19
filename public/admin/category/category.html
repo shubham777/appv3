@@ -1,0 +1,63 @@
+
+
+<div class="container">
+    <div class="row profile-text">
+        <strong style="text-decoration: underline">Add a Category </strong>
+    </div>
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-6"style="margin-left: 1em;">
+            <form id="categoryAdd" class="category-form" role="form">
+
+                <div style="width: 50%;">
+                    <div class="input-group">
+
+                        <input type="text" class="form-control" name="categoryId" placeholder="Category ID" ng-model="category.id"
+                               title="Enter Your Category Id"  required>
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <input type="text" class="form-control" placeholder="Category Name" ng-model="category.name"
+                               title="Enter a Category Name" required>
+                    </div>
+
+                    <div class="input-group">
+
+                        <select class="form-control" ng-model="category.parent" ng-options="category.name for category in categories"> </select>
+
+                    </div>
+
+
+
+                    <div class="input-group" style="margin-bottom:10px;">
+
+                        <textarea class="form-control" placeholder="Category Description"  ng-model="category.description" title="Enter Category description" required></textarea>
+                    </div>
+
+                    <div class="input-group">
+
+                        <select class="form-control" ng-model="category.status" ng-options="status.name for status in statuses"> </select>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="input-group">
+                    <button class="btn btn-lg btn-primary btn-block" ng-click="addCategory();" ng-disabled="validateProduct();">Add product</button>
+                </div>
+
+
+            </form>
+
+            <button id="updateForm" ng-click="updateForm();" style="display: none;">Hello</button>
+
+        </div>
+
+
+
+    </div>
+</div>

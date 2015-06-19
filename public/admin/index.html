@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="myApp.admin" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="myApp.admin" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="myApp.admin" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="myApp.admin" class="no-js"> <!--<![endif]-->
+<head lang="en">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Rentbingo.com</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Montserrat:400,700%7COpen+Sans:300italic,400italic,600italic,700italic,800italic,300,400,600,700">
+    <link rel="stylesheet" href="/fonts/font-awesome-4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/WebRupee/2.0/font.min.css">
+    <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+    <style type="text/css">
+        /*
+ * Style tweaks
+ * --------------------------------------------------
+ */
+        body {
+            padding-top: 50px;
+            background-color: #f5f5f5;
+        }
+        footer {
+            padding-left: 15px;
+            padding-right: 15px;
+            background-color: #fff;
+        }
+
+        /*
+         * Off Canvas
+         * --------------------------------------------------
+         */
+        @media screen and (max-width: 768px) {
+            .row-offcanvas {
+                position: relative;
+                -webkit-transition: all 0.25s ease-out;
+                -moz-transition: all 0.25s ease-out;
+                transition: all 0.25s ease-out;
+            }
+
+            .row-offcanvas-left
+            .sidebar-offcanvas {
+                left: -33%;
+            }
+
+            .row-offcanvas-left.active {
+                left: 33%;
+            }
+
+            .sidebar-offcanvas {
+                position: absolute;
+                top: 0;
+                width: 33%;
+                margin-left: 10px;
+            }
+        }
+
+
+        /* Sidebar navigation */
+        .nav-sidebar {
+            background-color: #f5f5f5;
+            margin-right: -15px;
+            margin-bottom: 20px;
+            margin-left: -15px;
+        }
+        .nav-sidebar > li > a {
+            padding-right: 20px;
+            padding-left: 20px;
+            padding-top :20px;
+            padding-bottom: 20px;
+            color : #ffffff;
+        }
+        .nav.nav-sidebar > li.active > a {
+            color: #fff;
+            background-color: #c52d2f;
+        }
+
+
+
+
+        /*
+         * Main content
+         */
+
+        .main {
+            padding: 20px;
+            background-color: #fff;
+        }
+        @media (min-width: 768px) {
+            .main {
+                padding-right: 40px;
+                padding-left: 40px;
+            }
+        }
+        .main .page-header {
+            margin-top: 0;
+        }
+
+        .nav>li>a>.label {
+            position: absolute;
+            top: 9px;
+            right: 7px;
+            text-align: center;
+            font-size: 9px;
+            padding: 2px 3px;
+            line-height: .9;
+        }
+
+        .label-warning {
+            background-color: #f0ad4e;
+        }
+
+        .label {
+            display: inline;
+            padding: .2em .6em .3em;
+            font-size: 75%;
+            font-weight: 700;
+            line-height: 1;
+            color: #fff;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: baseline;
+            border-radius: .25em;
+        }
+
+        .label-success, .modal-success .modal-body {
+            background-color: #00a65a !important;
+        }
+
+        div.modal-dialog {
+            width : 327px;
+        }
+        div.input-group {
+            width: 268px;
+            height: 43px;
+            padding-bottom: 5px;;
+        }
+
+        input.form-control, select.form-control {
+            height :44px;
+
+        }
+
+        .btn.btn-lg.btn-primary.btn-block{
+            border-color: #c52d2f;
+            background-color: #c52d2f;
+        }
+        #user-dropdown{
+            border-color: #333;
+            background-color: #333;
+            color : #ffffff;
+        }
+        li#logOut > a{
+            color: #ffffff;
+        }
+
+        #productAdd .input-group{
+            padding: 0.6em;
+        }
+
+        #productAdd .input-group .form-control {
+            width: 320px;
+            margin-bottom: 0;
+        }
+
+        #productAdd .btn{
+            margin-left: 0em;
+
+        }
+        #categoryAdd .btn{
+            margin-left: 0em;
+            width: 270px;
+        }
+        .btn.btn-lg.btn-primary.btn-block {
+            border-color: #c52d2f;
+            background-color: #c52d2f;
+            width: 320px;
+        }
+
+        #signin .btn.btn-lg.btn-primary.btn-block {
+            border-color: #c52d2f;
+            background-color: #c52d2f;
+            width: 100%;
+        }
+        .profile-text{
+            color: #c52d2f;
+            font-weight: 500;
+            font-size: 2em;
+            text-align: center;
+            font-family: "Bitstream Vera Sans Mono", Monaco, "Courier New", Courier, monospace;
+            padding-bottom: 1em;
+        }
+
+        #vendorInfo .input-group{
+            padding: 1em;
+        }
+
+        #vendorInfo .input-group .form-control {
+            width: 320px;
+            margin-bottom: 0;
+        }
+
+        #vendorInfo .btn{
+            margin-left: 0em;
+
+        }
+        img.img-responsive:hover {
+        border: 5px solid #c52d2f;
+        }
+        .spinnerLoader
+        {
+            display: none;
+            width:200px;
+            height: 200px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            text-align:center;
+            margin-left: -50px;
+            margin-top: -100px;
+            z-index:2;
+            overflow: auto;
+        }
+
+        .allProductsDiv{
+            margin-left: 3em;
+        }
+        nav, #sidebar{
+            font-family: 'Franklin Gothic Medium', 'Franklin Gothic', 'ITC Franklin Gothic', Arial, sans-serif;
+        }
+        div.row.profile-text{
+            font-family: 'Franklin Gothic Medium', 'Franklin Gothic', 'ITC Franklin Gothic', Arial, sans-serif;
+        }
+
+        img.img-responsive {
+            max-height: 100%;
+            width: 100%;
+            border: 1px solid darkgray;
+        }
+        .img-responsive {
+            display: block;
+            height: 100%;
+            max-width: 100%;
+        }
+
+        .product-image {
+            position: relative;
+            display: block;
+        }
+        .outline-outward {
+            position: relative;
+            overflow: visible !important;
+        }
+    </style>
+    <script src="/scripts/vendor/jquery.js"></script>
+    <script src="/scripts/vendor/parse-1.4.2.js"></script>
+    <script>
+        if(!localStorage.getItem("currentUserName")) {
+            var password = prompt("Enter Your Password");
+            $.ajax({
+                method: 'POST',
+                url: '/api/signIn',
+                async: false,
+                data: {username: "admin@rentbingo.com", password: password}
+            })
+                    .done(function (res) {
+                        if (typeof res.code != 'undefined') {
+                            alert("Error Logging In");
+                            window.location.href = "/pages/login_error.html";
+                           // window.location.reload();
+                        }
+                        else {
+                            alert("Welcome Admin");
+                            localStorage.setItem("currentUserName", res.name);
+                            localStorage.setItem("currentUserEmail", res.email);
+                        }
+                    })
+                    .fail(function () {
+                        alert("Error Logging In!");
+                    });
+        }
+    </script>
+
+</head>
+<body style="background-color: #ecf0f1">
+<div class="spinnerLoader"  id="spinner">
+    <img src="/img/ajax-loader.gif" class=".loading-image">
+</div>
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" ng-controller="navbarController">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Rentbingo</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+
+                <li><a href="/shop/#/" target="_blank">Shop</a></li>
+                <li><a href="#"><i class="fa fa-envelope-o"></i><span class="label label-success">4</span> &nbsp;</a></li>
+                <li><a href="#"><i class="fa fa-bell-o"></i><span class="label label-warning">10</span> &nbsp;</a></li>
+
+                <li class="dropdown"><a href="#"><b>Hello, <strong id="username">Admin</strong></b> &nbsp;<span class="caret"></span></a>
+                    <ul aria-labelledby="User-Info" class="dropdown-menu" id="user-dropdown">
+                        <li id="logOut"><a ng-click="logOut();">Log Out</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</nav>
+
+<br/>
+<br/>
+
+<div class="container-fluid">
+
+    <div class="row row-offcanvas row-offcanvas-left">
+        <div class="col-md-2 col-sm-12"  style="margin-left : 0.5em; height: 520px;background-color: #333; box-shadow:2px  2px 2px 2px #888888;">
+            <div id="imgTest" style="height:10em;width:10em; margin-left: 2.3em; margin-bottom: 2em; margin-top:1em;border:2px solid #888888;">
+
+                <label style="height: 100%;width: 100%;">
+                    <img src="/img/batman.jpg" style="width: 100%; height: 100%;"/>
+                   <!-- <input type="file" style="display: block;" id="inputFileToLoad" ng-click="uploadProfilePhoto();"> -->
+                </label>
+            </div>
+
+            <!--
+            <label for="profileImage" >
+                <img id="imgFileUpload" class="classImgFileUpload" src="/img/batman.jpg" height="100%" width="100%">
+                <input type="file" id="profileImage" style="opacity:0;"/>
+            </label>
+            -->
+
+            <div id="sidebar" role="navigation">
+
+                <ul class="nav nav-sidebar" style="background-color: #333;">
+                    <li class="active"><a href="#/product"><i class="fa fa-shopping-cart"></i> &nbsp;Add Product</a></li>
+                    <li><a href="#/edit_product"><i class="fa fa-shopping-cart"></i> &nbsp;Edit Product</a></li>
+                    <li><a href="#/category"><i class="fa fa-inr"></i> &nbsp;Add Category</a></li>
+                    <li><a href="#/vendor"><i class="fa fa-user"></i> &nbsp;Add Vendor</a></li>
+                    <li><a href="#"><i class="fa fa-gear"></i> &nbsp;Settings</a></li>
+
+
+                </ul>
+
+            </div><!--/span-->
+
+
+        </div>
+
+
+        <div class="col-md-9 col-sm-12"  style="height: auto; min-height: 520px; margin-left: 2em;background-color: #f5f5f5; box-shadow:2px 2px 2px 2px #888888;">
+
+            <div ng-view></div>
+        </div>
+
+        <div class="col-md-1"></div>
+    </div><!--/row-->
+</div><!--/.container-->
+
+
+<script src="/scripts/vendor/jquery.js"></script>
+<script src="/bower_components/angular/angular.js"></script>
+<script src="/bower_components/angular-route/angular-route.js"></script>
+<script src="/bower_components/angular-resource/angular-resource.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="Scripts/adminControllers.js"></script>
+<script src="Scripts/adminServices.js"></script>
+<script src="Scripts/admin.js"></script>
+
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+    $('#sidebar .nav li').on('click', function(){
+        $(this).closest('ul').find('.active').removeClass();
+        $(this).addClass('active');
+
+    });
+
+
+
+    $('li.dropdown').on('mouseenter', function(){
+        $('#user-dropdown').show();
+    }).on('mouseleave', function(){
+        $('#user-dropdown').hide();
+    });
+
+
+});
+</script>
