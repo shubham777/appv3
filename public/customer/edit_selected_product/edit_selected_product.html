@@ -1,6 +1,9 @@
 
 
 <div class="container">
+    <div>
+        <a id="backEditSelectedButton" href="#/edit_product" style="display: none;">Back</a>
+    </div>
     <div class="row profile-text">
         <strong style="text-decoration: underline">Edit Product</strong>
     </div>
@@ -137,4 +140,11 @@
 
         $('#validateButton').click();
     };
+
+            $(document).ready(function(){
+                setTimeout(function(){
+                    $('#backEditSelectedButton').fadeIn();
+                }, 1000);
+            });
+
 </script>

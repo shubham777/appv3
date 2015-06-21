@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="/styles/main-responsive.css">
     <link id="primary_color_scheme" rel="stylesheet" href="/styles/theme_meadow.css">
     <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/4.9.0/bootstrap-social.css">
     <link rel="stylesheet" href="/styles/build.css">
     <link rel="stylesheet" href="/styles/animate.css">
     <link rel="stylesheet" href="/styles/animations.css">
@@ -231,6 +232,13 @@
             font-size: 2em;
             font-family: Rockwell, 'Courier Bold', Courier, Georgia, Times, 'Times New Roman', serif;
         }
+        #hover-text-3{
+            position: absolute;
+            font-size: 1.3em;
+            font-family: Rockwell, 'Courier Bold', Courier, Georgia, Times, 'Times New Roman', serif;
+            margin-top : -6em;
+            margin-left: 18.9em;
+        }
 
         #productAdd .input-group{
             padding: 0.6em;
@@ -282,6 +290,32 @@
         }
 
         #backButton:hover {
+            background: #c52d2f
+        }
+        #backEditButton, #backEditSelectedButton {
+            position: absolute;
+            background: #428BCA;
+            color: #fff;
+            font-family: Sans-serif;
+            font-size: 14px;
+            height: 40px;
+            width: 120px;
+            line-height: 40px;
+            margin: 25px 25px;
+            text-align: center;
+            border: 0;
+            transition: all 0.3s ease 0s;
+            webkit-border-radius: 20px 5px 5px 20px;
+            -moz-border-radius: 20px 5px 5px 20px;
+            border-radius: 20px 5px 5px 20px;
+            margin-top:0.4em;
+            margin-left: 0.5em;
+        }
+
+        #backEditButton:hover {
+            background: #c52d2f
+        }
+        #backEditSelectedButton:hover {
             background: #c52d2f
         }
 
@@ -474,11 +508,28 @@
             position: relative;
             overflow: visible !important;
         }
+        .spinnerLoader
+        {
+            display: none;
+            width:200px;
+            height: 200px;
+            position: fixed;
+            top: 50%;
+            left: 52.8%;
+            text-align:center;
+            margin-left: -50px;
+            margin-top: -100px;
+            z-index:2;
+            overflow: auto;
+        }
 
     </style>
 
 </head>
 <body style="background-color: #ecf0f1">
+<div class="spinnerLoader"  id="spinner">
+    <img src="/img/ajax-loader.gif" class=".loading-image">
+</div>
 <div ng-controller="navbarController">
   <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container-fluid">
@@ -609,7 +660,7 @@
                             <li id="sidebar_orders"><a href="#/orders"><i class="fa fa-shopping-cart"></i> &nbsp;Orders</a></li>
                             <li id="sidebar_store"><a href="#/store"><i class="fa fa-inr"></i> &nbsp;Store</a></li>
                             <li id="sidebar_profile"><a href="#/profile"><i class="fa fa-user"></i> &nbsp;Profile</a></li>
-                            <li id="sidebar_settings"><a href=""><i class="fa fa-gear"></i> &nbsp;Settings</a></li>
+                            <li id="sidebar_settings"><a href="#/settings"><i class="fa fa-gear"></i> &nbsp;Settings</a></li>
 
                         </ul>
 
@@ -682,16 +733,18 @@
                             <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
                             <input type="password" class="form-control" name="password" placeholder="Password" ng-model="passwordSignIn" required>
                         </div>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" name="remember-me"> Remember me
-                            </label>
+                        <div class="checkbox checkbox-primary" style="height: 2.5em;">
+                            <input class="styled" type="checkbox"  id="remember-me" checked="true"/> <label for="remember-me">Remember Me</label>
                         </div>
                         <input type="hidden" class="form-control" name="secret" required>
                         <button class="btn btn-lg btn-primary btn-block" type="submit" ng-click="signIn();">Sign in</button>
                     </form>
 
                     <form id="signup" class="login-form" role="form">
+                        <a class="btn btn-block btn-social btn-facebook" ng-click="facebookSignUp();">
+                            <i class="fa fa-facebook"></i> Sign up with Facebook
+                        </a>
+                        <hr>
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
                             <input type="text" class="form-control" name="name" placeholder="Name" ng-model="nameSignUp" required>
@@ -715,7 +768,7 @@
                             <input type="mobile" class="form-control" placeholder="Mobile" pattern="[0-9]{10}" ng-model="mobileSignUp" title="Enter a valid mobile number" required>
                         </div>
 
-                        <button class="btn btn-lg btn-primary btn-block" type="submit" id="submitSignUp" ng-click="signUp();">Sign up</button>
+                        <button class="btn btn-lg btn-primary btn-block" type="submit" id="submitSignUp" ng-click="signUp();" style="width: 265px;">Sign up</button>
                     </form>
 
 
@@ -723,7 +776,7 @@
                         <div class="input-group"> <input type="email" class="form-control" placeholder="Email address" name="forgotEmail"
                                                          ng-model="emailResetPassword"  pattern="([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?" title="Enter a valid email address" required autofocus>
                         </div>
-                        <button class="btn btn-lg btn-primary btn-block" type="submit" ng-click="resetPassword();">Send Reset Link</button>
+                        <button class="btn btn-lg btn-primary btn-block" type="submit" ng-click="resetPassword();" style="width: 265px;margin-top: 0.5em;">Send Reset Link</button>
                     </form>
 
 
@@ -868,6 +921,9 @@
         (function makeSidebarListActive(){
             var hash = window.location.hash;
             var list_active = '#' + 'sidebar_' + hash.substr(2);
+            if(list_active.length > 30){
+                return;
+            }
             $('#sidebar_orders').removeClass('active');
             $(list_active).addClass('active');
         }());
@@ -881,6 +937,10 @@
 
         });
         $('#logOut').css('cursor', 'pointer');
+        $('#loginModal').on('shown.bs.modal', function () {
+            // do something…
+            $("[name = 'username']").focus();
+        });
 
     });
 
@@ -903,9 +963,10 @@
     }
 
     if(!currentUser || !currentUser.username || typeof currentUser == 'undefined'){
-        $('#loginModal').modal('show');
+        $('#loginModal').modal('lock');
     }
-    var uploadProfilePhoto = function(){ debugger;
+    var profilepicUrlDone = false;
+    var uploadProfilePhoto = function(){
         var profilePicControl = $('#inputFileToLoad')[0];
         if(profilePicControl.files.length > 0){
           var file = profilePicControl.files[0];
@@ -913,17 +974,19 @@
             var parseFile = new Parse.File(name, file);
             parseFile.save().then(function(parseFile){
               var profilePicUrl =  parseFile.url();
-             uploadUrlToParseCustomer(profilePicUrl);
-            },
-            function error(error){
+                       // console.log(profilePicUrl);
+                        profilepicUrlDone = true;
+                        if(profilepicUrlDone) {
+                            uploadUrlToParseCustomer(profilePicUrl);
+                        } },
+                    function error(error){
                 alert('Error saving profile Pic file! '  + error.code + " " + error.message);
             });
         }
     };
 
     var uploadUrlToParseCustomer = function(url){
-        debugger;
-      //  var url = "http://files.parsetfss.com/c5928800-1a1c-488e-96a4-232ed6f775fb/tfss-fa76fe67-a74a-4e6b-b207-3ece5310885c-lion.jpg";
+    debugger;
      try {
          var Customer = Parse.Object.extend('Customer');
          var query = new Parse.Query(Customer);
@@ -938,7 +1001,7 @@
                              customerObject.set("imageUrl", url);
                              customerObject.save(null, {
                                  success: function (customerObject) {
-                                     console.log('Url successfully saved to Customer profile');
+                                  //  console.log('Url successfully saved to Customer profile');
                                      $('#profileImage').attr('src', url);
                                      localStorage.setItem('imageUrl', url);
                                  },
@@ -1002,11 +1065,12 @@
             query.equalTo("email", currentUser.username);
             query.find({
                 success: function (results) {
-                    alert('get customer profile pic query');
+                   // alert('get customer profile pic query');
                     var customer = results[0];
                     if (typeof customer === 'undefined') {
 
-                        alert('No Customer Account')
+                       // alert('No Customer Account')
+                        $('#loginModal').modal('show');
                     }
                     else {
                         var imageUrl = customer.get('imageUrl');

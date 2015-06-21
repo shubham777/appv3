@@ -3,7 +3,12 @@
         My Orders
     </div>
     <div class="container">
-        <div class="row">
+        <div class="row" id="zeroOrders" style="display: none;">
+            <div class="row profile-text">
+                <strong style="color: #000000;"> You have 0 new Orders. </strong>
+            </div>
+        </div>
+        <div class="row" style="display: none;">
             <div class="col-md-5">
                <div id="zero-orders"> You have {{orders.length}} Orders </div>
                 <div style="border: 1px solid #333; height: 450px;overflow: scroll;margin-top: 2em;">
@@ -114,5 +119,10 @@
                     $('#forgot').show();
                     $("[name = 'forgotEmail']").focus();
                 });
+                $('#spinner').show();
+                setTimeout(function(){
+                    $('#spinner').hide();
+                    $('#zeroOrders').fadeIn();
+                },1000);
             });
         </script>

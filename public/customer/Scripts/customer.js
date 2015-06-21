@@ -25,6 +25,11 @@ customer.config(['$routeProvider', function($routeProvider){
             templateUrl : 'edit_selected_product/edit_selected_product.html',
             controller : 'editSelectedProductController'
         })
+        .when('/settings', {
+            templateUrl : 'settings/settings.html',
+            controller : 'settingsController'
+
+        })
         .when('/messages',{
             templateUrl : 'messages/messages.html',
             controller : 'messagesCtrl'

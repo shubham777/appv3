@@ -87,8 +87,6 @@ customerControllers.controller('profileController', ['$scope', function($scope){
         $scope.getLocalStorage();
     }
     else {
-        alert('City not set');
-
 
         if (currentUser == null) {
             alert('No User');
@@ -100,7 +98,6 @@ customerControllers.controller('profileController', ['$scope', function($scope){
                     query.equalTo("email", currentUser.username);
                     query.find({
                         success: function (results) {
-                            alert('get customer query');
                             $scope.customer = results[0];
                             if (typeof $scope.customer === 'undefined') {
                                 $scope.customerAccountExisting = false;
@@ -165,15 +162,7 @@ customerControllers.controller('profileController', ['$scope', function($scope){
         $scope.setLocalStorage();
     };
 
-    /*
-    debugger;
-      if($scope.customerAccountExisting){
-          $scope.getCustomerDetails();
-      }
-    else{
-          $scope.populateForm();
-      }
-    */
+
 
     $scope.uploadProfilePhoto = function(){
             debugger;
@@ -182,20 +171,7 @@ customerControllers.controller('profileController', ['$scope', function($scope){
     };
 
 
-/*
-    var query = new Parse.Query(Parse.User);
-        query.equalTo("username", currentUser._serverData.username);
-        query.find({
-           success :  function(results){
-              // var object = results[0];
-              // alert(object.id + ' - ' + object.get('name'));
 
-           },
-            error : function(error){
-                alert("Error: " + error.code + " " + error.message);
-            }
-        });
-*/
     $scope.validateUpdation = function(){
             debugger;
         if(typeof $scope.user.name === 'undefined' || $scope.user.name == ''){
@@ -210,15 +186,15 @@ customerControllers.controller('profileController', ['$scope', function($scope){
         else if($scope.user.address == '' || typeof $scope.user.address === 'undefined'){
             return true;
         }
-        else if(typeof $scope.user.state != 'undefined' ) {
-           if($scope.user.state.name === '--Please Select Your State--' || $scope.user.state.name == '')
-            return true;
-        }
         else if($scope.user.city == '' || typeof $scope.user.city === 'undefined'){
             return true;
         }
         else if($scope.user.pincode == '' || typeof $scope.user.pincode === 'undefined'){
             return true;
+        }
+        else if(typeof $scope.user.state != 'undefined' ) {
+            if($scope.user.state.name === '--Please Select Your State--' || $scope.user.state.name == '')
+                return true;
         }
         else{
             return false;
@@ -286,12 +262,11 @@ customerControllers.controller('navbarController', ['$scope', '$http', function(
         var user = {
             username :  $scope.currentUserEmail
         };
-        console.log(user);
+        //console.log(user);
 
         $http.post('/api/logOut', user)
             .success(function(data, status, headers, config){
-                console.log("log out");
-                $('#loginModal').modal('show');
+                window.location.reload();
             })
             .error(function(error){
             });
@@ -315,8 +290,7 @@ customerControllers.controller('navbarController', ['$scope', '$http', function(
         query.equalTo("read_status", false);
         query.find({
             success :  function(results){
-               // alert('Success retreiving messages');
-                console.log(results[0]);
+
                 $scope.newMessages = results;
                 $scope.newMessageCount = $scope.newMessages.length;
                 $scope.updateMessageBox();
@@ -325,7 +299,7 @@ customerControllers.controller('navbarController', ['$scope', '$http', function(
 
             } ,
             error : function(results, error){
-                console.log("Error: Retreiving new Message Count for " + username);
+               // console.log("Error: Retreiving new Message Count for " + username);
                 alert("Error: Retreiving new Message Count for " + username);
             }
         });
@@ -340,8 +314,6 @@ customerControllers.controller('navbarController', ['$scope', '$http', function(
         query.equalTo("read_status", false);
         query.find({
             success :  function(results){
-               // alert('Success retreiving Notifications');
-                console.log(results[0]);
                 $scope.newNotifications = results;
                 $scope.newNotificationCount = $scope.newNotifications.length;
                 $scope.updateNotificationBox();
@@ -350,7 +322,7 @@ customerControllers.controller('navbarController', ['$scope', '$http', function(
 
             } ,
             error : function(results, error){
-                console.log("Error: Retreiving new notification Count for " + username);
+               // console.log("Error: Retreiving new notification Count for " + username);
                 alert("Error: Retreiving new notification Count for " + username);
             }
         });
@@ -381,68 +353,157 @@ customerControllers.controller('navbarController', ['$scope', '$http', function(
 
 
 }]);
-customerControllers.controller('loginCtrl', ['$scope', function($scope){
+customerControllers.controller('loginCtrl', ['$scope', '$http', function($scope, $http){
 
 
-/*
     $scope.signUp =  function(){
 
+        var user = {
+            username : $scope.emailSignUp,
+            password : $scope.passwordSignUp,
+            name : $scope.nameSignUp,
+            mobile : $scope.mobileSignUp,
+            email : $scope.emailSignUp
+        };
 
-        var user = new Parse.User();
-        user.set("username", $scope.emailSignUp);
-        user.set("password",$scope.passwordSignUp);
-        user.set("name",$scope.nameSignUp);
-        user.set("mobile",$scope.mobileSignUp);
-        user.set("email",$scope.emailSignUp);
-        user.set("emailVerified", false);
+        $http.post('/api/signUp', user)
+            .success(function(data, status, headers, config){
+                alert("You are good to go!");
+                $scope.setCurrentUser(data);
+                var email = {
+                    recipient_email : data.email,
+                    user_name : data.name,
+                    subject : "Welcome to Rentbingo"
+                };
+                $scope.sendEmail(email);
+                // location.reload();
+            })
+            .error(function(error){
+                alert("Error: " +  error.message);
+                //202username faraz@yahoo.com already taken
+            });
 
-        user.signUp(null, {
-            success : function(user){
-                alert("success");
+    };
+
+    $scope.setCurrentUser = function(user){
+        localStorage.setItem('currentUserName', user.name );
+        localStorage.setItem('currentUserEmail', user.email );
+        localStorage.setItem('currentUserMobile', user.mobile );
+
+    };
+
+    $scope.freeLocalStorage = function(){
+        localStorage.clear();
+    };
+    $scope.facebookSignUp = function(){
+
+
+        Parse.FacebookUtils.logIn(null, {
+            success: function(user) {
+                if (!user.existed()) {
+                    alert("User signed up and logged in through Facebook!");
+                } else {
+                    alert("User logged in through Facebook!");
+                }
             },
-            error : function(user, error){
-                alert("Error: " + error.code + error.message);
+            error: function(user, error) {
+                alert("User cancelled the Facebook login or did not fully authorize.");
             }
         });
     };
 
     $scope.signIn = function(){
-        debugger;
-        Parse.User.logIn($scope.emailSignIn, $scope.passwordSignIn,{
-            success : function(user) {
-                alert("success");
-                $scope.user = user._serverData;
-                $scope.setLocalStorage();
-                window.location.replace('/app/customer');
-            } ,
-            error : function(user, error){
-                alert("Error: " + error.code + error.message);
-            }
-        });
 
-        $scope.setLocalStorage = function(){
-            localStorage.setItem('name', $scope.user.name);
-            localStorage.setItem('email', $scope.user.email);
-            localStorage.setItem('phone1', $scope.user.mobile);
-            localStorage.setItem('country', 'India');
-
+        var user = {
+            username : $scope.emailSignIn,
+            password : $scope.passwordSignIn
         };
+
+        $http.post('/api/signIn', user)
+            .success(function(data, headers, status, config){
+                if(typeof data.code != 'undefined'){
+                    $scope.showError(data);
+                }
+                else {
+                    $('#menu_item_MyAccount').show();
+                    $('#login').hide();
+                    $('#loginModal').modal('hide');
+                    $scope.setCurrentUser(data);
+                    if(data.name == "admin"){
+                        window.open('/admin');
+                        return;
+                    }
+                    window.location.reload();
+
+                }
+            })
+            .error(function(error, status){
+                alert("Error: " + error.code + error.message);
+            });
+
     };
 
     $scope.resetPassword = function(){
 
-        Parse.User.requestPasswordReset($scope.emailResetPassword, {
-            success: function() {
-                // Password reset request was sent successfully
-                alert('success');
-            },
-            error: function(error) {
-                // Show the error message somewhere
+        var user = {
+            username :  $scope.emailResetPassword
+        };
+
+        $http.post('/api/resetPassword', user)
+            .success(function(data, status, headers, config){
+
+                alert('Please check your email to reset password');
+                $('#loginModal').modal('hide');
+            })
+            .error(function(error){
                 alert("Error: " + error.code + " " + error.message);
-            }
-        });
+            })
     };
-    */
+
+    $scope.logOut = function(){
+        if(typeof Parse.User.current()){
+            Parse.User.logOut();
+        }
+        $scope.freeLocalStorage();
+        $('#spinner').show();
+        setTimeout(function(){
+            $('#spinner').hide();
+            $('#login').show();
+        }, 1500);
+
+        var user = {
+            username :  $scope.currentUserEmail
+        };
+
+        $http.post('/api/logOut', user)
+            .success(function(data, status, headers, config){
+            })
+            .error(function(error){
+            });
+
+
+    };
+    $scope.showError = function(error){
+        alert("Error : " + error.message);
+    };
+
+    $scope.sendEmail = function(email){
+
+        $http.post('/api/sendEmail', email)
+            .success(function(data){
+               // console.log("Email data : " + data);
+            })
+            .error(function(error){
+
+            });
+    };
+
+    $scope.currentUser = localStorage.getItem('currentUserName');
+    // $scope.currentUserName = 'User';
+    if($scope.currentUser) {
+        $scope.currentUserName = localStorage.getItem('currentUserName');
+        $scope.currentUserEmail = localStorage.getItem('currentUserEmail');
+    }
 
 
 }]);
@@ -471,8 +532,6 @@ customerControllers.controller('messagesCtrl', ['$scope', function($scope){
             query.equalTo("read_status", false);
             query.find({
                 success :  function(results){
-                     //alert('Success retreiving messages');
-                    console.log(results[0]);
                     $scope.newMessages = results;
                     $scope.newMessageCount = $scope.newMessages.length;
                     $scope.updateMessageBox();
@@ -481,7 +540,7 @@ customerControllers.controller('messagesCtrl', ['$scope', function($scope){
 
                 } ,
                 error : function(results, error){
-                    console.log("Error: Retreiving new Message Count for " + username);
+                  //  console.log("Error: Retreiving new Message Count for " + username);
                     alert("Error: Retreiving new Message Count for " + username);
                 }
             });
@@ -497,11 +556,11 @@ customerControllers.controller('messagesCtrl', ['$scope', function($scope){
         message.save(null,{
             success: function(message){
 
-                alert("Read status changed");
-                console.log("Read status changed for vendor :" + username);
+               // alert("Read status changed");
+               // console.log("Read status changed for vendor :" + username);
             },
             error :  function(error){
-                console.log("Error Updating read Status for vendor: " + username + ' ' + error.code + ' ' + error.message);
+               // console.log("Error Updating read Status for vendor: " + username + ' ' + error.code + ' ' + error.message);
             }
         });
     };
@@ -542,8 +601,6 @@ customerControllers.controller('notificationsCtrl', ['$scope', function($scope){
             query.equalTo("read_status", false);
             query.find({
                 success :  function(results){
-                   // alert('Success retreiving Notifications');
-                    console.log(results[0]);
                     $scope.newNotifications = results;
                     $scope.newNotificationCount = $scope.newNotifications.length;
                     $scope.updateNotificationBox();
@@ -552,7 +609,7 @@ customerControllers.controller('notificationsCtrl', ['$scope', function($scope){
 
                 } ,
                 error : function(results, error){
-                    console.log("Error: Retreiving new notification Count for " + username);
+                   // console.log("Error: Retreiving new notification Count for " + username);
                     alert("Error: Retreiving new notification Count for " + username);
                 }
             });
@@ -585,6 +642,8 @@ customerControllers.controller('ordersController', ['$scope', function($scope){
             mobile :  localStorage.getItem('currentUserMobile')
         };
     }
+
+    /*
     $scope.order = {};
     $scope.orders = [];
     $scope.order.productCode = "Product3";
@@ -625,11 +684,11 @@ customerControllers.controller('ordersController', ['$scope', function($scope){
             order.save(null, {
                success :  function(order, error){
                     alert('Order Created');
-                   console.log('Order created for :' + currentUser.name);
+                  // console.log('Order created for :' + currentUser.name);
                } ,
                error :  function(error){
                    alert("Error creating order");
-                   console.log('Error : Order not created for :' + currentUser.name + ' ' + error.code + ' ' + error.message);
+                  // console.log('Error : Order not created for :' + currentUser.name + ' ' + error.code + ' ' + error.message);
                }
             });
 
@@ -641,14 +700,12 @@ customerControllers.controller('ordersController', ['$scope', function($scope){
         query.equalTo("owner_id", currentUser.username);
         query.find({
            success :  function(results){
-            alert("Success Getting order");
-            console.log(results[0]);
                $scope.updateOrdersList(results);
                $scope.$apply();
            } ,
             error :  function(error){
                 alert("Error Getting order");
-                console.log('Error : Getting Orders for :' + currentUser.name + ' ' + error.code + ' ' + error.message);
+              //  console.log('Error : Getting Orders for :' + currentUser.name + ' ' + error.code + ' ' + error.message);
             }
         });
     }();
@@ -660,31 +717,15 @@ customerControllers.controller('ordersController', ['$scope', function($scope){
             $scope.orders[i].id = results[i].id;
             $scope.orders[i].position = i;
         }
-        console.log($scope.orders);
+
     };
 
     $scope.populateIndividualOrder = function(position){
 
         $scope.individualOrder = $scope.orders[position];
-        console.log($scope.individualOrder);
-        /*
-        $scope.individualOrder.id = order.id;
-        $scope.individualOrder.product_code = order.product;
-        $scope.individualOrder.product_name = order.product_name;
-        $scope.individualOrder.rent = order.rent;
-        $scope.individualOrder.duration = order.duration;
-        $scope.individualOrder.customer_name = order.customer_name;
-        $scope.individualOrder.customer_contact = order.customer_contact;
-        $scope.individualOrder.customer_email = order.customer_email;
-        $scope.individualOrder.customer_address = order.customer_address;
-        $scope.individualOrder.customer_city = order.customer_city;
-        $scope.individualOrder.customer_state = order.customer_state;
-        $scope.individualOrder.customer_national_id_type = order.customer_national_id_type;
-        $scope.individualOrder.customer_national_id_no = order.customer_national_id_no;
-        */
-        //console.log($scope.individualOrder.product_code);
-    };
 
+    };
+    */
 }]);
 
 customerControllers.controller("editController",['$scope','$http', function($scope, $http){
@@ -699,9 +740,11 @@ customerControllers.controller("editController",['$scope','$http', function($sco
             .success(function(data){
                 $scope.allProducts = data;
                 if($scope.allProducts.length == 0){
+                    $('#spinner').hide();
                     $('#zeroProducts').show();
+                    return;
                 }
-                $scope.updateProducts(0,$scope.noOfVisibleProducts);
+                $scope.updateProducts(0,$scope.noOfVisibleProducts,$scope.allProducts.length);
                 $('#spinner').hide();
             })
             .error(function(data){
@@ -709,7 +752,16 @@ customerControllers.controller("editController",['$scope','$http', function($sco
             });
 
     })();
-    $scope.updateProducts = function(first,last){
+
+    $scope.updateProducts = function(first,last, length){
+        if(length < last){
+            for(var i=first; i< length; i++){
+                $scope.products[i] = $scope.allProducts[i];
+                localStorage.setItem("f",first);
+                localStorage.setItem("l", length);
+                return;
+            }
+        }
         for(var i=first; i< last; i++){
             $scope.products[i] = $scope.allProducts[i];
         }
@@ -861,7 +913,7 @@ customerControllers.controller('editSelectedProductController', ['$scope', '$rou
             else {
                 $scope.productExisting = false;
             }
-            console.log($scope.resultProduct);
+           // console.log($scope.resultProduct);
             $scope.updatePage($scope.resultProduct);
         })
         .error(function(error){
@@ -958,14 +1010,14 @@ customerControllers.controller('editSelectedProductController', ['$scope', '$rou
                     product.save(null, {
                         success: function (product) {
                             alert('Successfully edited Product : ' + product.id);
-                            console.log(product);
+                           // console.log(product);
                             $('#productAdd').hide();
                             $('#imagesAdd').show();
                             $('#updateProductCode').click();
                         },
                         error: function (error) {
                             alert("Error");
-                            console.log(error.code + ' ' + error.message);
+                           // console.log(error.code + ' ' + error.message);
                         }
                     });
                 },
@@ -987,5 +1039,26 @@ customerControllers.controller('editSelectedProductController', ['$scope', '$rou
     };
     $scope.skip = function(){
         window.location.href = '/pages/product_added.html';
+    };
+}]);
+
+customerControllers.controller('settingsController', ['$scope','$http', function($scope,$http){
+    var user = {
+        username :  $scope.currentUserEmail
+    };
+
+
+    $scope.unsubscribe = function(){
+        $http.post('/api/unsubscribe', user)
+            .success(function(data, status, headers, config){
+                if(data == 'done'){
+                    alert("You are unsubscribed!");
+                }
+                else{
+                    alert("Error : Please try again later!");
+                }
+            })
+            .error(function(error){
+            });
     };
 }]);

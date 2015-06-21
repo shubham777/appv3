@@ -4,6 +4,7 @@
     </div>
 
 
+
  <div class="container" style="margin-left: 80px; margin-top: 50px;" id="store-menu">
      <div class="profile-text" style="margin-left: -2.5em;margin-top: -1.5em;">
         Store
@@ -41,6 +42,9 @@
                 </div>
              </div>
          </div>
+     </div>
+     <div class="row">
+         <div class="col-md-10"><strong id="hover-text-3"></strong></div>
      </div>
  </div>
 
@@ -182,7 +186,11 @@
 
     <div id="orders">
         <div class="container" style="height: 400px;padding: 125px;">
-            List of all the orders
+            <div class="row" id="zeroProducts" style="display: block;">
+                <div class="row profile-text">
+                    <strong style="color: #000000;"> You have 0 new Orders. </strong>
+                </div>
+            </div>
         </div>
 
     </div>
@@ -216,6 +224,7 @@
       $(this).css('background-color', currentColor);
       $('#hover-text-1').text('');
       $('#hover-text-2').text('');
+      $('#hover-text-3').text('');
   });
 
    var changeDivText = function(currentColor){
@@ -230,6 +239,7 @@
        }
        else if(currentColor == "rgb(240, 173, 78)"){
            $('#hover-text-2').text('Track Sales').css('color',currentColor);
+            $('#hover-text-3').text('(Coming soon)').css('color',currentColor);
        }
        else{}
    };
@@ -246,13 +256,16 @@
   });
   $('#editProductMenu').on('click',function(){ debugger;
 
+      window.location.href = '#/edit_product';backEditButton
+
+      /*
       $('#store-menu').fadeOut();
       $('#editProduct').fadeIn();
       setTimeout(function(){
           $('#backButton').fadeIn();
       }, 1000);
       activeDiv = '#editProduct';
-
+      */
   });
   $('#ordersMenu').on('click',function(){ debugger;
 
@@ -266,12 +279,7 @@
   });
   $('#salesMenu').on('click',function(){ debugger;
 
-      $('#store-menu').fadeOut();
-      $('#sales').fadeIn();
-      setTimeout(function(){
-          $('#backButton').fadeIn();
-      }, 1000);
-      activeDiv = '#sales';
+
 
   });
 
