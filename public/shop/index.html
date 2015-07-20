@@ -450,7 +450,7 @@
             <ul class="nav navbar-nav navbar-right service-nav" style="margin-right: -5em;cursor:pointer;">
                 <!-- Login -->
                 <li><a id="login"  data-toggle="modal" data-target="#loginModal">Login</a>
-                <li class="dropdown"><a title="Pages" data-toggle="dropdown" data-hover="dropdown" id="menu_item_MyAccount" class="dropdown-toggle">Hi <span>{{currentUserName}}</span> <span class="caret"></span></a>
+                <li class="dropdown"><a title="Pages" data-toggle="dropdown" data-hover="dropdown" id="menu_item_MyAccount" class="dropdown-toggle">Hi, <span id="currentUserName"></span> <span class="caret"></span></a>
                     <ul aria-labelledby="menu_item_My_Account" class="dropdown-menu">
                         <!-- istanzio un id univoco-->
                         <li><a href="/customer/#/orders" title="My Orders" id="menu_item_orders" target="_blank">My Orders</a></li>
@@ -769,11 +769,6 @@
 <script src="/bower_components/angular-route/angular-route.js"></script>
 <script src="/bower_components/angular-resource/angular-resource.js"></script>
 <script src="/bower_components/angular-animate/angular-animate.min.js"></script>
-
-<script src="/components/version/version.js"></script>
-<script src="/components/version/version-directive.js"></script>
-<script src="/components/version/interpolate-filter.js"></script>
-
 <script src="Scripts/shopAnimate.js"></script>
 <script src="Scripts/shopControllers.js"></script>
 <script src="Scripts/shopServices.js"></script>
@@ -815,11 +810,13 @@
             $("[name = 'forgotEmail']").focus();
         });
 
-        debugger;
+        
         var currentUserName = localStorage.getItem('currentUserName');
         if(currentUserName){
           //  alert(currentUser._serverData.name);
             $('#login').hide();
+
+            $('#currentUserName').html(localStorage.getItem('currentUserName').split(' ')[0]);
 
         }
         else {

@@ -4,6 +4,10 @@
 // expose the routes to our app with module.exports
 module.exports = function(app, Parse, log, mandrill_client) {
 
+    app.all('*', function(req, res, next){  
+            next();
+    });
+
     // application -------------------------------------------------------------
     app.get('/', function(req, res) {
         try{
@@ -164,6 +168,16 @@ module.exports = function(app, Parse, log, mandrill_client) {
         };
 
         log.info(userData.username + ' logged out!');
+        res.send("done");
+    });
+
+    app.post('/api/unsubscribe', function(req, res){
+        var userData =  {
+            username : req.body.username
+        };
+
+        log.info(userData.username + ' unsubscribed!');
+        res.send("done");
     });
 
     app.post('/api/sendEmail', function(req, res){
@@ -205,7 +219,11 @@ module.exports = function(app, Parse, log, mandrill_client) {
 
 
     });
-
+    //404
+    app.get('*', function(req, res){
+         res.statusCode = 404;
+         res.sendfile('./public/pages/404.html');
+    });
 
 
 };
